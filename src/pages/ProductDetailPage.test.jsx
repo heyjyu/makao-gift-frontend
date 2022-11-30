@@ -1,17 +1,21 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
-import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router';
+import { render, screen, waitFor } from '@testing-library/react';
+import { MemoryRouter, Route, Routes } from 'react-router';
 import ProductDetailPage from './ProductDetailPage';
 
 describe('ProductDetailPage', () => {
-  it('renders button to send present', () => {
+  it('renders button to send present', async () => {
     render(
       <MemoryRouter initialEntries={['/products/1']}>
-        <ProductDetailPage />
+        <Routes>
+          <Route path="/products/:id" element={<ProductDetailPage />} />
+        </Routes>
       </MemoryRouter>,
     );
 
-    screen.getByText(/선물하기/);
+    await waitFor(() => {
+      screen.getByText(/선물하기/);
+    });
   });
 });
