@@ -7,7 +7,7 @@ import config from './config';
 const baseUrl = config.apiBaseUrl;
 
 const server = setupServer(
-  rest.post(`${baseUrl}/products`, async (req, res, ctx) => res(ctx.json({
+  rest.get(`${baseUrl}/products`, async (req, res, ctx) => res(ctx.json({
     products: [
       {
         id: 2,
