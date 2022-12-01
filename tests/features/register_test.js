@@ -15,7 +15,7 @@ Scenario('회원 가입 성공', ({ I }) => {
   I.fillField('password', 'Abcdef1!');
   I.fillField('passwordCheck', 'Abcdef1!');
   I.click('[type=submit]');
-  
+
   I.click('로그인하기');
   I.fillField('username', 'gildong');
   I.fillField('password', 'Abcdef1!');
