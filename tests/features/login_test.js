@@ -9,7 +9,7 @@ Before(({ I }) => {
 Scenario('로그인', ({ I }) => {
   I.click('로그인');
 
-  I.fillField('username', 'myId');
+  I.fillField('username', 'myid');
   I.fillField('password', 'Abcdef1!');
 
   I.click('로그인하기');
@@ -33,7 +33,7 @@ Scenario('아이디를 입력하지 않은 경우', ({ I }) => {
 Scenario('비밀번호를 입력하지 않은 경우', ({ I }) => {
   I.click('로그인');
 
-  I.fillField('username', 'myId');
+  I.fillField('username', 'myid');
 
   I.click('로그인하기');
 
@@ -54,7 +54,7 @@ Scenario('존재하지 않는 아이디를 입력한 경우', ({ I }) => {
 Scenario('비밀번호가 틀린 경우', ({ I }) => {
   I.click('로그인');
 
-  I.fillField('username', 'myId');
+  I.fillField('username', 'myid');
   I.fillField('password', 'ABcdef1!');
 
   I.click('로그인하기');

@@ -6,7 +6,7 @@ Before(({ I }) => {
   I.addItems(1);
 
   I.amOnPage('/');
-  I.login('myId');
+  I.login('myid');
 });
 
 Scenario('주문 목록이 없는 경우', ({ I }) => {

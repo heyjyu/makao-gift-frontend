@@ -6,7 +6,7 @@ Before(({ I }) => {
   I.addItems(1);
 
   I.amOnPage('/');
-  I.login('myId');
+  I.login('myid');
 });
 
 Scenario('로그인을 하지 않은 경우', ({ I }) => {
@@ -16,7 +16,7 @@ Scenario('로그인을 하지 않은 경우', ({ I }) => {
   I.click('+');
   I.click('선물하기');
 
-  I.fillField('username', 'myId');
+  I.fillField('username', 'myid');
   I.fillField('password', 'Abcdef1!');
   I.click('로그인하기');
   I.click('선물하기');

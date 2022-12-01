@@ -43,14 +43,35 @@ const server = setupServer(
     } = await req.json();
 
     if (name === '홍길동'
-    && username === 'myId'
+    && username === 'myid'
     && password === 'Abcdef1!'
     && passwordCheck === 'Abcdef1!') {
       return res(
         ctx.json({
           id: 1,
           name: '홍길동',
-          username: 'myId',
+          username: 'myid',
+        }),
+      );
+    }
+
+    return res(
+      ctx.status(400),
+    );
+  }),
+
+  rest.post(`${baseUrl}/session`, async (req, res, ctx) => {
+    const {
+      username, password,
+    } = await req.json();
+
+    if (username === 'myid'
+    && password === 'Abcdef1!') {
+      return res(
+        ctx.json({
+          accessToken: 'ACCESS.TOKEN',
+          name: '홍길동',
+          amount: 50000,
         }),
       );
     }

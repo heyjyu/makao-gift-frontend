@@ -7,7 +7,7 @@ Before(({ I }) => {
 });
 
 Scenario('로그아웃', ({ I }) => {
-  I.login('myId');
+  I.login('myid');
 
   I.see('잔액: 50,000원');
 

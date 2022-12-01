@@ -61,7 +61,7 @@ export default function SignUpForm() {
             비밀번호:
           </label>
           <input
-            type="text"
+            type="password"
             name="password"
             id="input-password"
             onChange={(e) => signUpFormStore.changePassword(e.target.value)}
@@ -72,7 +72,7 @@ export default function SignUpForm() {
             비밀번호 확인:
           </label>
           <input
-            type="text"
+            type="password"
             name="password-check"
             id="input-password-check"
             onChange={(e) => signUpFormStore.changePasswordCheck(e.target.value)}

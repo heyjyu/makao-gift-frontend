@@ -1,6 +1,7 @@
 import {
   fireEvent, render, screen, waitFor,
 } from '@testing-library/react';
+import { userStore } from '../stores/UserStore';
 import LoginForm from './LoginForm';
 
 const navigate = jest.fn();
@@ -32,11 +33,10 @@ describe('LoginForm', () => {
 
   context('with correct username and password', () => {
     it('navigates to homepage', async () => {
-      // TODO use msw
       renderLoginForm();
 
       fireEvent.change(screen.getByPlaceholderText('아이디'), {
-        target: { value: 'myId' },
+        target: { value: 'myid' },
       });
 
       fireEvent.change(screen.getByPlaceholderText('비밀번호'), {
@@ -51,25 +51,23 @@ describe('LoginForm', () => {
     });
   });
 
-  // TODO
-  // context('with incorrect username and password', () => {
-  //   it('does not navigate to homepage', async () => {
-  //     // TODO use msw
-  //     renderLoginForm();
+  context('with incorrect username and password', () => {
+    it('does not navigate to homepage', async () => {
+      renderLoginForm();
 
-  //     fireEvent.change(screen.getByPlaceholderText('아이디'), {
-  //       target: { value: 'wrongId' },
-  //     });
+      fireEvent.change(screen.getByPlaceholderText('아이디'), {
+        target: { value: 'wrongId' },
+      });
 
-  //     fireEvent.change(screen.getByPlaceholderText('비밀번호'), {
-  //       target: { value: 'Abcdef1!' },
-  //     });
+      fireEvent.change(screen.getByPlaceholderText('비밀번호'), {
+        target: { value: 'Abcdef1!' },
+      });
 
-  //     fireEvent.click(screen.getByRole('button', { name: '로그인하기' }));
+      fireEvent.click(screen.getByRole('button', { name: '로그인하기' }));
 
-  //     await waitFor(() => {
-  //       expect(navigate).not.toBeCalledWith('/');
-  //     });
-  //   });
-  // });
+      await waitFor(() => {
+        expect(userStore.isLoginFailed).toBeTruthy();
+      });
+    });
+  });
 });

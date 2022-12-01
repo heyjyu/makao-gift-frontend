@@ -12,7 +12,7 @@ Before(({ I }) => {
   I.addItems(1);
 
   I.amOnPage('/');
-  I.login('myId');
+  I.login('myid');
 });
 
 Scenario('나의 주문 세부 정보 확인하는 경우', ({ I }) => {
