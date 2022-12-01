@@ -1,4 +1,7 @@
-import { render, fireEvent, screen } from '@testing-library/react';
+import {
+  render, fireEvent, screen, waitFor,
+} from '@testing-library/react';
+import { userStore } from '../stores/UserStore';
 import SignUpForm from './SignUpForm';
 
 const context = describe;
@@ -15,58 +18,63 @@ jest.mock('react-router-dom', () => ({
 }));
 
 describe('SignUpForm', () => {
+  beforeEach(() => {
+    userStore.resetSignUpStatus();
+  });
+
   function renderSignUpForm() {
     render(<SignUpForm />);
   }
 
   context('when successfully signed up', () => {
-    it('renders a button that navigates to the login page', () => {
-      // TODO msw 사용하기
+    it('renders a button that navigates to the login page', async () => {
       renderSignUpForm();
 
       fireEvent.change(screen.getByLabelText('이름:'), {
-        target: '홍길동',
+        target: { value: '홍길동' },
       });
 
       fireEvent.change(screen.getByLabelText('아이디:'), {
-        target: 'newId',
+        target: { value: 'myId' },
       });
 
       fireEvent.change(screen.getByLabelText('비밀번호:'), {
-        target: 'Abcdef1!',
+        target: { value: 'Abcdef1!' },
       });
 
       fireEvent.change(screen.getByLabelText('비밀번호 확인:'), {
-        target: 'Abcdef1!',
+        target: { value: 'Abcdef1!' },
       });
 
       fireEvent.click(screen.getByText('회원가입'));
 
-      screen.getByText('로그인하기');
+      await waitFor(() => {
+        screen.getByText('로그인하기');
+      });
     });
   });
 
-  // TODO
-  // context('when failed to sign up', () => {
-  //   it('does not render a button that navigates to the login page', () => {
-  //     // TODO msw 사용하기
-  //     renderSignUpForm();
+  context('when failed to sign up', () => {
+    it('does not render a button that navigates to the login page', async () => {
+      renderSignUpForm();
 
-  //     fireEvent.change(screen.getByLabelText('아이디:'), {
-  //       target: 'newId',
-  //     });
+      fireEvent.change(screen.getByLabelText('아이디:'), {
+        target: { value: 'newId' },
+      });
 
-  //     fireEvent.change(screen.getByLabelText('비밀번호:'), {
-  //       target: 'Abcdef1!',
-  //     });
+      fireEvent.change(screen.getByLabelText('비밀번호:'), {
+        target: { value: 'Abcdef1!' },
+      });
 
-  //     fireEvent.change(screen.getByLabelText('비밀번호 확인:'), {
-  //       target: 'Abcdef1!',
-  //     });
+      fireEvent.change(screen.getByLabelText('비밀번호 확인:'), {
+        target: { value: 'Abcdef1!' },
+      });
 
-  //     fireEvent.click(screen.getByText('회원가입'));
+      fireEvent.click(screen.getByText('회원가입'));
 
-  //     expect(screen.queryByText('로그인하기')).toBeNull();
-  //   });
-  // });
+      await waitFor(() => {
+        expect(userStore.signUpStatus).toBe('failed');
+      });
+    });
+  });
 });
