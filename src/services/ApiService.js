@@ -28,6 +28,18 @@ export default class ApiService {
       imageUrl: data.imageUrl,
     };
   }
+
+  async createUser({
+    name, username, password, passwordCheck,
+  }) {
+    const { data } = await this.instance.post('/users', {
+      name, username, password, passwordCheck,
+    });
+
+    return {
+      id: data.id,
+    };
+  }
 }
 
 export const apiService = new ApiService();

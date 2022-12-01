@@ -36,6 +36,29 @@ const server = setupServer(
     description: '갈비천왕+콜라1.25L',
     imageUrl: 'https://img1.kakaocdn.net/thumb/C320x320@2x.q82.fwebp/?fname=https%3A%2F%2Fst.kakaocdn.net%2Fproduct%2Fgift%2Fproduct%2F20220503173239_52adf00ef3c54f96931ddd31229920c7.jpg',
   }))),
+
+  rest.post(`${baseUrl}/users`, async (req, res, ctx) => {
+    const {
+      name, username, password, passwordCheck,
+    } = await req.json();
+
+    if (name === '홍길동'
+    && username === 'myId'
+    && password === 'Abcdef1!'
+    && passwordCheck === 'Abcdef1!') {
+      return res(
+        ctx.json({
+          id: 1,
+          name: '홍길동',
+          username: 'myId',
+        }),
+      );
+    }
+
+    return res(
+      ctx.status(400),
+    );
+  }),
 );
 
 export default server;
