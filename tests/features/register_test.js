@@ -28,7 +28,7 @@ Scenario('존재하는 아이디를 입력한 경우', ({ I }) => {
   I.click('회원가입');
 
   I.fillField('name', '홍길동');
-  I.fillField('username', 'myId');
+  I.fillField('username', 'myid');
   I.fillField('password', 'Abcdef1!');
   I.fillField('passwordCheck', 'Abcdef1!');
 

@@ -1,7 +1,5 @@
 import SignUpFormStore from './SignUpFormStore';
 
-const context = describe;
-
 describe('SignUpFormStore', () => {
   let signUpFormStore;
 
@@ -19,9 +17,9 @@ describe('SignUpFormStore', () => {
 
   describe('changeUsername', () => {
     it('changes username', () => {
-      signUpFormStore.changeUsername('myId');
+      signUpFormStore.changeUsername('myid');
 
-      expect(signUpFormStore.username).toBe('myId');
+      expect(signUpFormStore.username).toBe('myid');
     });
   });
 

@@ -40,6 +40,20 @@ export default class ApiService {
       id: data.id,
     };
   }
+
+  async postSession({
+    username, password,
+  }) {
+    const { data } = await this.instance.post('/session', {
+      username, password,
+    });
+
+    return {
+      accessToken: data.accessToken,
+      name: data.name,
+      amount: data.amount,
+    };
+  }
 }
 
 export const apiService = new ApiService();

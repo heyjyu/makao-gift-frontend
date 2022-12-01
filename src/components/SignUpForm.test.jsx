@@ -35,7 +35,7 @@ describe('SignUpForm', () => {
       });
 
       fireEvent.change(screen.getByLabelText('아이디:'), {
-        target: { value: 'myId' },
+        target: { value: 'myid' },
       });
 
       fireEvent.change(screen.getByLabelText('비밀번호:'), {
@@ -59,7 +59,7 @@ describe('SignUpForm', () => {
       renderSignUpForm();
 
       fireEvent.change(screen.getByLabelText('아이디:'), {
-        target: { value: 'newId' },
+        target: { value: 'newid' },
       });
 
       fireEvent.change(screen.getByLabelText('비밀번호:'), {
