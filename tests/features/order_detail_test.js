@@ -67,7 +67,7 @@ Scenario('다른 사람의 주문 세부 정보 확인하는 경우', ({ I }) =>
   I.click('선물하기');
   I.click('로그아웃');
 
-  I.login('MyId');
+  I.login('myid2');
 
   I.amOnPage('/orders/1');
 

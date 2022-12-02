@@ -16,6 +16,8 @@ Scenario('상품이 없는 경우', ({ I }) => {
 Scenario('상품이 있는 경우', ({ I }) => {
   I.addItems(1);
 
+  I.amOnPage('/');
+
   I.click('스토어');
 
   I.dontSee('상품이 존재하지 않습니다');

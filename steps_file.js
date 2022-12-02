@@ -1,10 +1,27 @@
-// in this file you can append custom step methods to 'I' object
+/* global actor */
 
-module.exports = function () {
-  return actor({
+const backdoorBaseUrl = 'http://localhost:8000/backdoor';
 
-    // Define custom steps here, use 'this' to access default methods of I.
-    // It is recommended to place a general 'login' function here.
+module.exports = () => actor({
+  setupDatabase() {
+    this.amOnPage(`${backdoorBaseUrl}/setup-database`);
+  },
 
-  });
-};
+  addItems(count) {
+    this.amOnPage(`${backdoorBaseUrl}/add-items?count=${count}`);
+  },
+
+  submit() {
+    this.click('[type=submit]');
+  },
+
+  login(username) {
+    this.amOnPage('/login');
+
+    this.fillField('username', username);
+    this.fillField('password', 'Abcdef1!');
+    this.click('로그인하기');
+
+    this.waitForText('로그아웃');
+  },
+});
