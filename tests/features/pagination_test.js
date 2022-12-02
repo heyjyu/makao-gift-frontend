@@ -16,6 +16,9 @@ Scenario('아이템이 없는 경우', ({ I }) => {
 
 Scenario('아이템이 1개인 경우 ', ({ I }) => {
   I.addItems(1);
+
+  I.amOnPage('/');
+
   I.click('스토어');
 
   I.see('1');
@@ -26,6 +29,8 @@ Scenario('아이템이 1개인 경우 ', ({ I }) => {
 
 Scenario('아이템이 9개인 경우', ({ I }) => {
   I.addItems(9);
+
+  I.amOnPage('/');
 
   I.click('스토어');
 
@@ -38,6 +43,8 @@ Scenario('아이템이 9개인 경우', ({ I }) => {
 Scenario('아이템이 81개인 경우', ({ I }) => {
   I.addItems(81);
 
+  I.amOnPage('/');
+
   I.click('스토어');
 
   I.see({ css: 'button[name=previous][disabled]' });
@@ -48,6 +55,8 @@ Scenario('아이템이 81개인 경우', ({ I }) => {
 Scenario('다음 버튼을 누르는 경우', ({ I }) => {
   I.addItems(81);
 
+  I.amOnPage('/');
+
   I.click({ name: 'next' });
 
   I.see('11');
@@ -57,6 +66,8 @@ Scenario('다음 버튼을 누르는 경우', ({ I }) => {
 
 Scenario('이전 버튼을 누르는 경우', ({ I }) => {
   I.addItems(81);
+
+  I.amOnPage('/');
 
   I.click({ name: 'next' });
   I.click({ name: 'previous' });

@@ -50,9 +50,21 @@ export default function ProductDetail() {
             </th>
             <td>
               <div>
-                <button type="button" onClick={() => productStore.countDown()}>-</button>
+                <button
+                  type="button"
+                  name="-"
+                  onClick={() => productStore.countDown()}
+                >
+                  -
+                </button>
                 {productStore.count}
-                <button type="button" onClick={() => productStore.countUp()}>+</button>
+                <button
+                  type="button"
+                  name="+"
+                  onClick={() => productStore.countUp()}
+                >
+                  +
+                </button>
               </div>
             </td>
           </tr>

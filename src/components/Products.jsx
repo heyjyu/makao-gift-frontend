@@ -27,7 +27,10 @@ export default function Products() {
               />
               <p>{product.producer}</p>
               <p>{product.name}</p>
-              <strong>{numberFormat(product.price)}</strong>
+              <strong>
+                {numberFormat(product.price)}
+                원
+              </strong>
             </Link>
           </li>
         ))}
