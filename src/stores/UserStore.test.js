@@ -98,4 +98,20 @@ describe('UserStore', () => {
       expect(userStore.loginStatus).toBe('');
     });
   });
+
+  describe('isAffordable', () => {
+    it('checks if user amount is more than total price', () => {
+      expect(userStore.isAffordable(userStore.amount - 100)).toBeTruthy();
+      expect(userStore.isAffordable(userStore.amount)).toBeTruthy();
+      expect(userStore.isAffordable(userStore.amount + 100)).toBeFalsy();
+    });
+  });
+
+  describe('setAmount', () => {
+    it('modifies amount', () => {
+      userStore.setAmount(5000000);
+
+      expect(userStore.amount).toBe(5000000);
+    });
+  });
 });

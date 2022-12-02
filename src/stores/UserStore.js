@@ -48,6 +48,14 @@ export default class UserStore extends Store {
     }
   }
 
+  isAffordable(amount) {
+    return this.amount >= amount;
+  }
+
+  setAmount(amount) {
+    this.amount = amount;
+  }
+
   changeSignUpStatus(status) {
     this.signUpStatus = status;
     this.publish();

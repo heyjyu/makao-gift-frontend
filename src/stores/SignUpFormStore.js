@@ -33,6 +33,15 @@ export default class SignUpFormStore extends Store {
 
     this.publish();
   }
+
+  reset() {
+    this.name = '';
+    this.username = '';
+    this.password = '';
+    this.passwordCheck = '';
+
+    this.publish();
+  }
 }
 
 export const signUpFormStore = new SignUpFormStore();

@@ -15,7 +15,7 @@ describe('ProductDetailPage', () => {
     );
 
     await waitFor(() => {
-      screen.getByText(/선물하기/);
+      screen.getByText('선물하기');
     });
   });
 });

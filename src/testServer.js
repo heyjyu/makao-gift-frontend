@@ -80,6 +80,24 @@ const server = setupServer(
       ctx.status(400),
     );
   }),
+
+  rest.post(`${baseUrl}/orders`, async (req, res, ctx) => {
+    const {
+      productId, count, to, address,
+    } = await req.json();
+
+    if (productId && count > 0 && to && address) {
+      return res(
+        ctx.json({
+          id: 1,
+        }),
+      );
+    }
+
+    return res(
+      ctx.status(400),
+    );
+  }),
 );
 
 export default server;

@@ -19,6 +19,13 @@ export default class LoginFormStore extends Store {
 
     this.publish();
   }
+
+  reset() {
+    this.username = '';
+    this.password = '';
+
+    this.publish();
+  }
 }
 
 export const loginFormStore = new LoginFormStore();

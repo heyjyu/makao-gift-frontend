@@ -60,6 +60,14 @@ describe('ProductStore', () => {
     });
   });
 
+  describe('setCount', () => {
+    it('sets count', () => {
+      productStore.setCount(5);
+
+      expect(productStore.count).toBe(5);
+    });
+  });
+
   describe('reset', () => {
     it('sets count to 1', async () => {
       productStore.countUp();
