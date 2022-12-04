@@ -3,6 +3,7 @@ import { useLocalStorage } from 'usehooks-ts';
 import useOrderFormStore from '../hooks/useOrderFormStore';
 import useOrderStore from '../hooks/useOrderStore';
 import useProductStore from '../hooks/useProductStore';
+import useUserStore from '../hooks/useUserStore';
 import numberFormat from '../utils/numberFormat';
 
 export default function OrderForm() {
@@ -14,6 +15,8 @@ export default function OrderForm() {
   const orderFormStore = useOrderFormStore();
 
   const orderStore = useOrderStore();
+
+  const userStore = useUserStore();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,6 +32,7 @@ export default function OrderForm() {
     }
 
     if (orderStore.isOrderSuccessful) {
+      userStore.reduceAmount(productStore.totalPrice());
       navigate('/orders');
     }
   };

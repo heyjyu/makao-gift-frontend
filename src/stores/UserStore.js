@@ -48,12 +48,24 @@ export default class UserStore extends Store {
     }
   }
 
+  async fetchUser() {
+    const { amount } = await apiService.fetchUser();
+
+    this.amount = amount;
+
+    this.publish();
+  }
+
   isAffordable(amount) {
     return this.amount >= amount;
   }
 
   setAmount(amount) {
     this.amount = amount;
+  }
+
+  reduceAmount(amount) {
+    this.amount -= amount;
   }
 
   changeSignUpStatus(status) {

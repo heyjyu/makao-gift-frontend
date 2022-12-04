@@ -7,6 +7,11 @@ import config from './config';
 const baseUrl = config.apiBaseUrl;
 
 const server = setupServer(
+  rest.get(`${baseUrl}/users/me`, async (req, res, ctx) => res(ctx.json({
+    name: '홍길동',
+    amount: 50000,
+  }))),
+
   rest.get(`${baseUrl}/products`, async (req, res, ctx) => res(ctx.json({
     products: [
       {
