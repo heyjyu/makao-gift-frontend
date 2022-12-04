@@ -75,6 +75,16 @@ describe('UserStore', () => {
     });
   });
 
+  describe('fetchUser', () => {
+    it('updates amount', async () => {
+      userStore.setAmount(0);
+
+      await userStore.fetchUser();
+
+      expect(userStore.amount).toBe(50000);
+    });
+  });
+
   describe('resetSignUpStatus', () => {
     it('resets signUpStatus', () => {
       userStore.changeSignUpStatus('processing');
@@ -112,6 +122,15 @@ describe('UserStore', () => {
       userStore.setAmount(5000000);
 
       expect(userStore.amount).toBe(5000000);
+    });
+  });
+
+  describe('reduceAmount', () => {
+    it('reduces amount', () => {
+      userStore.setAmount(10000);
+      userStore.reduceAmount(1000);
+
+      expect(userStore.amount).toBe(9000);
     });
   });
 });

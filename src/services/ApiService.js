@@ -23,6 +23,15 @@ export default class ApiService {
     }
   }
 
+  async fetchUser() {
+    const { data } = await this.instance.get('/users/me');
+
+    return {
+      name: data.name,
+      amount: data.amount,
+    };
+  }
+
   async fetchProducts() {
     const { data } = await this.instance.get('/products');
 

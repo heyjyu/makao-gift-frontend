@@ -1,8 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useLocalStorage } from 'usehooks-ts';
+import useUserStore from '../hooks/useUserStore';
+import numberFormat from '../utils/numberFormat';
 
 export default function Header() {
   const navigate = useNavigate();
+
+  const userStore = useUserStore();
 
   const [accessToken, setAccessToken] = useLocalStorage('accessToken', '');
 
@@ -82,7 +86,10 @@ export default function Header() {
       </nav>
       <div>
         <p>
-          내 잔액: 50,000원
+          내 잔액:
+          {' '}
+          {numberFormat(userStore.amount)}
+          원
         </p>
       </div>
       <button type="button" onClick={handleLogout}>

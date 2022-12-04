@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { useLocalStorage } from 'usehooks-ts';
 import Header from './components/Header';
+import useUserStore from './hooks/useUserStore';
 
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
@@ -19,11 +20,17 @@ import defaultTheme from './styles/defaultTheme';
 import GlobalStyle from './styles/GlobalStyle';
 
 export default function App() {
+  const userStore = useUserStore();
+
   const [accessToken] = useLocalStorage('accessToken', '');
 
   useEffect(() => {
     apiService.setAccessToken(accessToken);
   }, [accessToken]);
+
+  useEffect(() => {
+    userStore.fetchUser();
+  }, []);
 
   return (
     <ThemeProvider theme={defaultTheme}>
