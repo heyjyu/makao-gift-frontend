@@ -42,6 +42,7 @@ export default function SignUpForm() {
             type="text"
             name="name"
             id="input-name"
+            value={signUpFormStore.name}
             onChange={(e) => signUpFormStore.changeName(e.target.value)}
           />
         </div>
@@ -53,6 +54,7 @@ export default function SignUpForm() {
             type="text"
             name="username"
             id="input-username"
+            value={signUpFormStore.username}
             onChange={(e) => signUpFormStore.changeUsername(e.target.value)}
           />
         </div>
@@ -64,6 +66,7 @@ export default function SignUpForm() {
             type="password"
             name="password"
             id="input-password"
+            value={signUpFormStore.password}
             onChange={(e) => signUpFormStore.changePassword(e.target.value)}
           />
         </div>
@@ -75,6 +78,7 @@ export default function SignUpForm() {
             type="password"
             name="password-check"
             id="input-password-check"
+            value={signUpFormStore.passwordCheck}
             onChange={(e) => signUpFormStore.changePasswordCheck(e.target.value)}
           />
         </div>

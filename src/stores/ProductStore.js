@@ -37,6 +37,12 @@ export default class ProductStore extends Store {
     this.publish();
   }
 
+  setCount(count) {
+    this.count = count;
+
+    this.publish();
+  }
+
   reset() {
     this.count = 1;
     this.product = null;

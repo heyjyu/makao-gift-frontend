@@ -27,33 +27,55 @@ describe('LoginForm', () => {
     jest.clearAllMocks();
   });
 
-  function renderLoginForm() {
-    render(<LoginForm />);
+  function renderLoginForm(location) {
+    render(<LoginForm location={location} />);
   }
 
   context('with correct username and password', () => {
-    it('navigates to homepage', async () => {
-      renderLoginForm();
+    context('when previous page is not order page', () => {
+      it('navigates to homepage', async () => {
+        renderLoginForm({ state: {} });
 
-      fireEvent.change(screen.getByPlaceholderText('아이디'), {
-        target: { value: 'myid' },
+        fireEvent.change(screen.getByPlaceholderText('아이디'), {
+          target: { value: 'myid' },
+        });
+
+        fireEvent.change(screen.getByPlaceholderText('비밀번호'), {
+          target: { value: 'Abcdef1!' },
+        });
+
+        fireEvent.click(screen.getByRole('button', { name: '로그인하기' }));
+
+        await waitFor(() => {
+          expect(navigate).toBeCalledWith('/');
+        });
       });
+    });
 
-      fireEvent.change(screen.getByPlaceholderText('비밀번호'), {
-        target: { value: 'Abcdef1!' },
-      });
+    context('when previous page is order page', () => {
+      it('navigates to order page', async () => {
+        renderLoginForm({ state: { previousPage: 'productDetailPage' } });
 
-      fireEvent.click(screen.getByRole('button', { name: '로그인하기' }));
+        fireEvent.change(screen.getByPlaceholderText('아이디'), {
+          target: { value: 'myid' },
+        });
 
-      await waitFor(() => {
-        expect(navigate).toBeCalledWith('/');
+        fireEvent.change(screen.getByPlaceholderText('비밀번호'), {
+          target: { value: 'Abcdef1!' },
+        });
+
+        fireEvent.click(screen.getByRole('button', { name: '로그인하기' }));
+
+        await waitFor(() => {
+          expect(navigate).toBeCalledWith(-1);
+        });
       });
     });
   });
 
   context('with incorrect username and password', () => {
     it('does not navigate to homepage', async () => {
-      renderLoginForm();
+      renderLoginForm({ state: {} });
 
       fireEvent.change(screen.getByPlaceholderText('아이디'), {
         target: { value: 'wrongId' },

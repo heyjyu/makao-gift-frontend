@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import { useLocalStorage } from 'usehooks-ts';
 import Header from './components/Header';
 
 import HomePage from './pages/HomePage';
@@ -10,12 +12,19 @@ import OrdersPage from './pages/OrdersPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import ProductsPage from './pages/ProductsPage';
 import SignUpPage from './pages/SignUpPage';
+import { apiService } from './services/ApiService';
 
 import defaultTheme from './styles/defaultTheme';
 
 import GlobalStyle from './styles/GlobalStyle';
 
 export default function App() {
+  const [accessToken] = useLocalStorage('accessToken', '');
+
+  useEffect(() => {
+    apiService.setAccessToken(accessToken);
+  }, [accessToken]);
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />

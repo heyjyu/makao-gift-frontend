@@ -15,6 +15,7 @@ jest.mock('react-router-dom', () => ({
   useNavigate() {
     return navigate;
   },
+  useLocation: jest.fn(),
 }));
 
 describe('LoginPage', () => {

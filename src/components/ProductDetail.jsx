@@ -1,18 +1,29 @@
 import { useNavigate } from 'react-router-dom';
+import { useLocalStorage } from 'usehooks-ts';
 import useProductStore from '../hooks/useProductStore';
+import useUserStore from '../hooks/useUserStore';
 import numberFormat from '../utils/numberFormat';
 
 export default function ProductDetail() {
   const navigate = useNavigate();
 
+  const [accessToken] = useLocalStorage('accessToken', '');
+
   const productStore = useProductStore();
+  const userStore = useUserStore();
 
   const { product } = productStore;
 
   const handleClickSendPresent = () => {
-    // TODO navigate to login page when not logged in
-    // TODO show error message when amount is not enough
-    navigate('/order');
+    if (!accessToken) {
+      navigate('/login', { state: { previousPage: 'productDetailPage' } });
+
+      return;
+    }
+
+    if (userStore.isAffordable(productStore.totalPrice())) {
+      navigate('/order');
+    }
   };
 
   if (!product) {
@@ -86,6 +97,17 @@ export default function ProductDetail() {
       <button type="button" onClick={handleClickSendPresent}>
         선물하기
       </button>
+      {accessToken
+      && !userStore.isAffordable(productStore.totalPrice())
+      && (
+        <p>
+          ❌
+          {' '}
+          잔액이 부족하여 선물하기가 불가합니다
+          {' '}
+          ❌
+        </p>
+      )}
     </div>
   );
 }

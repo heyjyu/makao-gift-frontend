@@ -38,4 +38,13 @@ describe('SignUpFormStore', () => {
       expect(signUpFormStore.passwordCheck).toBe('passwordCheck');
     });
   });
+
+  describe('reset', () => {
+    it('reset fields', () => {
+      signUpFormStore.changePasswordCheck('passwordCheck');
+      signUpFormStore.reset();
+
+      expect(signUpFormStore.passwordCheck).toBe('');
+    });
+  });
 });

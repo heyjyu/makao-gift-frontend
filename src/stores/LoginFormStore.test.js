@@ -22,4 +22,13 @@ describe('LoginFormStore', () => {
       expect(loginFormStore.password).toBe('password');
     });
   });
+
+  describe('reset', () => {
+    it('resets fields', () => {
+      loginFormStore.changePassword('password');
+      loginFormStore.reset();
+
+      expect(loginFormStore.password).toBe('');
+    });
+  });
 });

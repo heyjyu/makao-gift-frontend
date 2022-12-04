@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import { Link, useNavigate } from 'react-router-dom';
 import { useLocalStorage } from 'usehooks-ts';
 import useLoginFormStore from '../hooks/useLoginFormStore';
 import useUserStore from '../hooks/useUserStore';
 
-export default function LoginForm() {
+export default function LoginForm({ location }) {
   const navigate = useNavigate();
 
   const loginFormStore = useLoginFormStore();
@@ -21,6 +22,12 @@ export default function LoginForm() {
     if (userStore.isLoginSuccessful) {
       setAccessToken(accessToken);
 
+      if (location.state?.previousPage === 'productDetailPage') {
+        navigate(-1);
+
+        return;
+      }
+
       navigate('/');
     }
   };
@@ -33,12 +40,14 @@ export default function LoginForm() {
           type="text"
           name="username"
           placeholder="아이디"
+          value={loginFormStore.username}
           onChange={(e) => loginFormStore.changeUsername(e.target.value)}
         />
         <input
           type="password"
           name="password"
           placeholder="비밀번호"
+          value={loginFormStore.password}
           onChange={(e) => loginFormStore.changePassword(e.target.value)}
         />
         <button type="submit">

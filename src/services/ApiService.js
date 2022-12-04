@@ -4,9 +4,24 @@ import config from '../config';
 const baseUrl = config.apiBaseUrl;
 
 export default class ApiService {
-  instance = axios.create({
-    baseURL: baseUrl,
-  });
+  constructor() {
+    this.accessToken = '';
+
+    this.instance = axios.create({
+      baseURL: baseUrl,
+    });
+  }
+
+  setAccessToken(accessToken) {
+    this.accessToken = accessToken;
+
+    if (accessToken) {
+      this.instance = axios.create({
+        baseURL: baseUrl,
+        headers: { Authorization: `Bearer ${this.accessToken}` },
+      });
+    }
+  }
 
   async fetchProducts() {
     const { data } = await this.instance.get('/products');
@@ -52,6 +67,18 @@ export default class ApiService {
       accessToken: data.accessToken,
       name: data.name,
       amount: data.amount,
+    };
+  }
+
+  async createOrder({
+    productId, count, to, address, message,
+  }) {
+    const { data } = await this.instance.post('/orders', {
+      productId, count, to, address, message,
+    });
+
+    return {
+      id: data.id,
     };
   }
 }
