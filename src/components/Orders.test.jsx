@@ -1,24 +1,51 @@
-import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { render, screen, waitFor } from '@testing-library/react';
 import Orders from './Orders';
-
-const context = describe;
 
 let orderStore;
 
 jest.mock('../hooks/useOrderStore', () => () => orderStore);
 
+const navigate = jest.fn();
+
+jest.mock('react-router-dom', () => ({
+  // eslint-disable-next-line react/prop-types
+  Link({ children, to }) {
+    return (
+      <a href={to}>
+        {children}
+      </a>
+    );
+  },
+  useNavigate() {
+    return navigate;
+  },
+}));
+
+const context = describe;
+
 describe('Orders', () => {
   function renderOrders() {
     render(
-      <MemoryRouter initialEntries={['/orders']}>
-        <Orders />
-      </MemoryRouter>,
+      <Orders />,
     );
   }
 
   beforeEach(() => {
     jest.clearAllMocks();
+  });
+
+  context('when logged out', () => {
+    it('navigates to login page', async () => {
+      orderStore = {
+        orders: [],
+      };
+
+      renderOrders();
+
+      await waitFor(() => {
+        expect(navigate).toBeCalledWith('/login');
+      });
+    });
   });
 
   context('with orders', () => {

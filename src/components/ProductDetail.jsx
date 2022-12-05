@@ -94,7 +94,7 @@ export default function ProductDetail() {
         {numberFormat(productStore.totalPrice())}
         원
       </strong>
-      <button type="button" onClick={handleClickSendPresent}>
+      <button type="button" name="send-present" onClick={handleClickSendPresent}>
         선물하기
       </button>
       {accessToken

@@ -1,8 +1,20 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useLocalStorage } from 'usehooks-ts';
 import useOrderStore from '../hooks/useOrderStore';
 
 export default function Orders() {
+  const navigate = useNavigate();
+
   const orderStore = useOrderStore();
+
+  const [accessToken] = useLocalStorage('accessToken', '');
+
+  useEffect(() => {
+    if (!accessToken) {
+      navigate('/login');
+    }
+  }, [accessToken]);
 
   if (!orderStore.orders.length) {
     return (
