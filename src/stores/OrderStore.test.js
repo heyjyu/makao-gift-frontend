@@ -1,3 +1,4 @@
+import { apiService } from '../services/ApiService';
 import OrderStore from './OrderStore';
 
 const context = describe;
@@ -45,6 +46,28 @@ describe('OrderStore', () => {
     });
   });
 
+  describe('fetchOrder', () => {
+    context('with right accessToken', () => {
+      it('modifies order', async () => {
+        apiService.setAccessToken('ACCESS.TOKEN');
+        await orderStore.fetchOrder(1);
+
+        expect(orderStore.order).not.toBeNull();
+        expect(orderStore.isFetchOrderDetailSuccessful).toBeTruthy();
+      });
+    });
+
+    context('with wrong accessToken', () => {
+      it('modifies order', async () => {
+        apiService.setAccessToken('WRONG.TOKEN');
+        await orderStore.fetchOrder(1);
+
+        expect(orderStore.order).toBeNull();
+        expect(orderStore.isFetchOrderDetailFailed).toBeTruthy();
+      });
+    });
+  });
+
   describe('reset', () => {
     it('reset fields', () => {
       orderStore.changeOrderStatus('successful');
@@ -53,6 +76,7 @@ describe('OrderStore', () => {
       expect(orderStore.orders).toEqual([]);
       expect(orderStore.order).toBeNull();
       expect(orderStore.orderStatus).toBe('');
+      expect(orderStore.fetchOrderDetailStatus).toBe('');
     });
   });
 });

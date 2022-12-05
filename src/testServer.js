@@ -142,6 +142,34 @@ const server = setupServer(
       },
     ],
   }))),
+
+  rest.get(`${baseUrl}/orders/1`, async (req, res, ctx) => {
+    const token = req.headers.get('authorization').substring('Bearer '.length);
+
+    if (token === 'ACCESS.TOKEN') {
+      return res(ctx.json({
+        address: '서울시 행복구 행복동',
+        count: 1,
+        createdAt: '2022-12-05T14:27:14.931659',
+        id: 1,
+        message: '행복하세요~',
+        product: {
+          description: '갈비천왕+콜라1.25L',
+          id: 1,
+          imageUrl: 'https://img1.kakaocdn.net/thumb/C320x320@2x.q82.fwebp/?fname=https%3A%2F%2Fst.kakaocdn.net%2Fproduct%2Fgift%2Fproduct%2F20220503173239_52adf00ef3c54f96931ddd31229920c7.jpg',
+          name: '갈비천왕+콜라1.25L',
+          price: 10000,
+          producer: '굽네치킨',
+        },
+        to: '동길홍',
+        totalPrice: 10000,
+      }));
+    }
+
+    return res(
+      ctx.status(400),
+    );
+  }),
 );
 
 export default server;

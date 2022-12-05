@@ -8,6 +8,7 @@ export default class OrderStore extends Store {
     this.orders = [];
     this.order = null;
     this.orderStatus = '';
+    this.fetchOrderDetailStatus = '';
   }
 
   async orderItem({
@@ -32,10 +33,21 @@ export default class OrderStore extends Store {
     this.publish();
   }
 
+  async fetchOrder(id) {
+    try {
+      this.order = await apiService.fetchOrder(id);
+
+      this.changeFetchOrderDetailStatus('successful');
+    } catch {
+      this.changeFetchOrderDetailStatus('failed');
+    }
+  }
+
   reset() {
     this.orders = [];
     this.order = null;
     this.orderStatus = '';
+    this.fetchOrderDetailStatus = '';
 
     this.publish();
   }
@@ -45,8 +57,21 @@ export default class OrderStore extends Store {
     this.publish();
   }
 
+  changeFetchOrderDetailStatus(status) {
+    this.fetchOrderDetailStatus = status;
+    this.publish();
+  }
+
   get isOrderSuccessful() {
     return this.orderStatus === 'successful';
+  }
+
+  get isFetchOrderDetailSuccessful() {
+    return this.fetchOrderDetailStatus === 'successful';
+  }
+
+  get isFetchOrderDetailFailed() {
+    return this.fetchOrderDetailStatus === 'failed';
   }
 }
 
