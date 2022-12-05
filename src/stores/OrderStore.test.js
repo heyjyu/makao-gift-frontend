@@ -37,6 +37,14 @@ describe('OrderStore', () => {
     });
   });
 
+  describe('fetchOrders', () => {
+    it('modifies orders', async () => {
+      await orderStore.fetchOrders();
+
+      expect(orderStore.orders.length).toBe(2);
+    });
+  });
+
   describe('reset', () => {
     it('reset fields', () => {
       orderStore.changeOrderStatus('successful');

@@ -90,6 +90,14 @@ export default class ApiService {
       id: data.id,
     };
   }
+
+  async fetchOrders() {
+    const { data } = await this.instance.get('/orders');
+
+    const { orders } = data;
+
+    return orders;
+  }
 }
 
 export const apiService = new ApiService();
