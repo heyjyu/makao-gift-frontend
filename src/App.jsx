@@ -29,7 +29,9 @@ export default function App() {
   }, [accessToken]);
 
   useEffect(() => {
-    userStore.fetchUser();
+    if (accessToken) {
+      userStore.fetchUser();
+    }
   }, []);
 
   return (
