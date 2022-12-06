@@ -18,13 +18,13 @@ jest.mock('react-router-dom', () => ({
 }));
 
 describe('SignUpForm', () => {
-  beforeEach(() => {
-    userStore.resetSignUpStatus();
-  });
-
   function renderSignUpForm() {
     render(<SignUpForm />);
   }
+
+  beforeEach(() => {
+    userStore.resetSignUpStatus();
+  });
 
   context('when successfully signed up', () => {
     it('renders a button that navigates to the login page', async () => {
@@ -54,9 +54,13 @@ describe('SignUpForm', () => {
     });
   });
 
-  context('when failed to sign up', () => {
-    it('does not render a button that navigates to the login page', async () => {
+  context('with empty name', () => {
+    it('renders error message', () => {
       renderSignUpForm();
+
+      fireEvent.change(screen.getByLabelText('이름:'), {
+        target: { value: '' },
+      });
 
       fireEvent.change(screen.getByLabelText('아이디:'), {
         target: { value: 'newid' },
@@ -72,9 +76,33 @@ describe('SignUpForm', () => {
 
       fireEvent.click(screen.getByText('회원가입'));
 
-      await waitFor(() => {
-        expect(userStore.signUpStatus).toBe('failed');
+      screen.getByText(/입력해주세요/);
+    });
+  });
+
+  context('with empty name', () => {
+    it('renders error message', () => {
+      renderSignUpForm();
+
+      fireEvent.change(screen.getByLabelText('이름:'), {
+        target: { value: '' },
       });
+
+      fireEvent.change(screen.getByLabelText('아이디:'), {
+        target: { value: 'newid' },
+      });
+
+      fireEvent.change(screen.getByLabelText('비밀번호:'), {
+        target: { value: 'Abcdef1!' },
+      });
+
+      fireEvent.change(screen.getByLabelText('비밀번호 확인:'), {
+        target: { value: 'Abcdef1!' },
+      });
+
+      fireEvent.click(screen.getByText('회원가입'));
+
+      screen.getByText(/입력해주세요/);
     });
   });
 });

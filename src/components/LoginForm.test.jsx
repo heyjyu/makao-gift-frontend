@@ -1,7 +1,6 @@
 import {
   fireEvent, render, screen, waitFor,
 } from '@testing-library/react';
-import { userStore } from '../stores/UserStore';
 import LoginForm from './LoginForm';
 
 const navigate = jest.fn();
@@ -73,8 +72,48 @@ describe('LoginForm', () => {
     });
   });
 
+  context('when username field is not filled', () => {
+    it('renders error message', async () => {
+      renderLoginForm({ state: {} });
+
+      fireEvent.change(screen.getByPlaceholderText('아이디'), {
+        target: { value: '' },
+      });
+
+      fireEvent.change(screen.getByPlaceholderText('비밀번호'), {
+        target: { value: 'Abcdef1!' },
+      });
+
+      fireEvent.click(screen.getByRole('button', { name: '로그인하기' }));
+
+      await waitFor(() => {
+        screen.getByText('아이디를 입력해주세요');
+      });
+    });
+  });
+
+  context('when password field is not filled', () => {
+    it('renders error message', async () => {
+      renderLoginForm({ state: {} });
+
+      fireEvent.change(screen.getByPlaceholderText('비밀번호'), {
+        target: { value: '' },
+      });
+
+      fireEvent.change(screen.getByPlaceholderText('아이디'), {
+        target: { value: 'myid' },
+      });
+
+      fireEvent.click(screen.getByRole('button', { name: '로그인하기' }));
+
+      await waitFor(() => {
+        screen.getByText('비밀번호를 입력해주세요');
+      });
+    });
+  });
+
   context('with incorrect username and password', () => {
-    it('does not navigate to homepage', async () => {
+    it('renders error message', async () => {
       renderLoginForm({ state: {} });
 
       fireEvent.change(screen.getByPlaceholderText('아이디'), {
@@ -88,7 +127,7 @@ describe('LoginForm', () => {
       fireEvent.click(screen.getByRole('button', { name: '로그인하기' }));
 
       await waitFor(() => {
-        expect(userStore.isLoginFailed).toBeTruthy();
+        screen.getByText('아이디 혹은 비밀번호가 맞지 않습니다');
       });
     });
   });

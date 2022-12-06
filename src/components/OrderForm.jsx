@@ -21,6 +21,8 @@ export default function OrderForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    orderFormStore.validate();
+
     if (orderFormStore.isValidateSuccessful) {
       await orderStore.orderItem({
         productId: product.id,
@@ -81,7 +83,9 @@ export default function OrderForm() {
             maxLength={7}
             onChange={(e) => orderFormStore.changeName(e.target.value)}
           />
-          <p>3~7자까지 한글만 사용 가능</p>
+          {orderFormStore.nameErrorMessage
+            ? <p>{orderFormStore.nameErrorMessage}</p>
+            : <p>3~7자까지 한글만 사용 가능</p>}
         </div>
         <div>
           <label htmlFor="input-address">
@@ -94,6 +98,9 @@ export default function OrderForm() {
             value={orderFormStore.address}
             onChange={(e) => orderFormStore.changeAddress(e.target.value)}
           />
+          {orderFormStore.addressErrorMessage
+            ? <p>{orderFormStore.addressErrorMessage}</p>
+            : null}
         </div>
         <div>
           <label htmlFor="input-message">

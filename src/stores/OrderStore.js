@@ -5,10 +5,7 @@ export default class OrderStore extends Store {
   constructor() {
     super();
 
-    this.orders = [];
-    this.order = null;
-    this.orderStatus = '';
-    this.fetchOrderDetailStatus = '';
+    this.reset();
   }
 
   async orderItem({

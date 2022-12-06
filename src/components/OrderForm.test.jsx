@@ -92,5 +92,27 @@ describe('OrderForm', () => {
         expect(navigate).not.toBeCalledWith('/orders');
       });
     });
+
+    context('when address field is not filled', () => {
+      it('does not navigate to orders page', async () => {
+        const id = 1;
+
+        await productStore.fetchProduct(id);
+
+        renderOrderForm();
+
+        fireEvent.change(screen.getByLabelText('받는 분 성함'), {
+          target: { value: '동길홍' },
+        });
+
+        fireEvent.change(screen.getByLabelText('받는 분께 보내는 메시지'), {
+          target: { value: '행복하세요~' },
+        });
+
+        fireEvent.click(screen.getByText('선물하기'));
+
+        expect(navigate).not.toBeCalledWith('/orders');
+      });
+    });
   });
 });
