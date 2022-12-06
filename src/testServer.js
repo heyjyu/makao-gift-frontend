@@ -7,11 +7,6 @@ import config from './config';
 const baseUrl = config.apiBaseUrl;
 
 const server = setupServer(
-  rest.get(`${baseUrl}/users/me`, async (req, res, ctx) => res(ctx.json({
-    name: '홍길동',
-    amount: 50000,
-  }))),
-
   rest.get(`${baseUrl}/products`, async (req, res, ctx) => res(ctx.json({
     products: [
       {
@@ -42,6 +37,11 @@ const server = setupServer(
     imageUrl: 'https://img1.kakaocdn.net/thumb/C320x320@2x.q82.fwebp/?fname=https%3A%2F%2Fst.kakaocdn.net%2Fproduct%2Fgift%2Fproduct%2F20220503173239_52adf00ef3c54f96931ddd31229920c7.jpg',
   }))),
 
+  rest.get(`${baseUrl}/users/me`, async (req, res, ctx) => res(ctx.json({
+    name: '홍길동',
+    amount: 50000,
+  }))),
+
   rest.post(`${baseUrl}/users`, async (req, res, ctx) => {
     const {
       name, username, password, passwordCheck,
@@ -63,6 +63,21 @@ const server = setupServer(
     return res(
       ctx.status(400),
     );
+  }),
+
+  rest.get(`${baseUrl}/users`, async (req, res, ctx) => {
+    const countOnly = req.url.searchParams.get('countOnly');
+    const username = req.url.searchParams.get('username');
+
+    if (countOnly && username === 'existid') {
+      return res(ctx.json({
+        count: 1,
+      }));
+    }
+
+    return res(ctx.json({
+      count: 0,
+    }));
   }),
 
   rest.post(`${baseUrl}/session`, async (req, res, ctx) => {

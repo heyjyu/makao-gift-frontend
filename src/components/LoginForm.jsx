@@ -14,22 +14,40 @@ export default function LoginForm({ location }) {
 
   const [, setAccessToken] = useLocalStorage('accessToken', '');
 
+  const handleChangeUsername = (e) => {
+    userStore.resetLoginStatus();
+    loginFormStore.changeUsername(e.target.value);
+  };
+
+  const handleChangePassword = (e) => {
+    userStore.resetLoginStatus();
+    loginFormStore.changePassword(e.target.value);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    loginFormStore.validate();
+
+    if (!loginFormStore.isValidateSuccessful) {
+      return;
+    }
+
     const accessToken = await userStore.login({ username, password });
 
-    if (userStore.isLoginSuccessful) {
-      setAccessToken(accessToken);
-
-      if (location.state?.previousPage === 'productDetailPage') {
-        navigate(-1);
-
-        return;
-      }
-
-      navigate('/');
+    if (userStore.isLoginFailed) {
+      return;
     }
+
+    setAccessToken(accessToken);
+
+    if (location.state?.previousPage === 'productDetailPage') {
+      navigate(-1);
+
+      return;
+    }
+
+    navigate('/');
   };
 
   return (
@@ -41,15 +59,21 @@ export default function LoginForm({ location }) {
           name="username"
           placeholder="아이디"
           value={loginFormStore.username}
-          onChange={(e) => loginFormStore.changeUsername(e.target.value)}
+          onChange={handleChangeUsername}
         />
         <input
           type="password"
           name="password"
           placeholder="비밀번호"
           value={loginFormStore.password}
-          onChange={(e) => loginFormStore.changePassword(e.target.value)}
+          onChange={handleChangePassword}
         />
+        {loginFormStore.errorMessage
+          ? <p>{loginFormStore.errorMessage}</p>
+          : null}
+        {userStore.isLoginFailed
+          ? <p>아이디 혹은 비밀번호가 맞지 않습니다</p>
+          : null}
         <button type="submit">
           로그인하기
         </button>

@@ -10,11 +10,15 @@ export default function SignUpForm() {
   } = signUpFormStore;
 
   const handleSubmit = (e) => {
-    userStore.signUp({
-      name, username, password, passwordCheck,
-    });
-
     e.preventDefault();
+
+    signUpFormStore.validate();
+
+    if (signUpFormStore.isValidateSuccessful) {
+      userStore.signUp({
+        name, username, password, passwordCheck,
+      });
+    }
   };
 
   if (userStore.isSignUpSuccessful) {
@@ -45,6 +49,9 @@ export default function SignUpForm() {
             value={signUpFormStore.name}
             onChange={(e) => signUpFormStore.changeName(e.target.value)}
           />
+          {signUpFormStore.nameErrorMessage
+            ? <p>{signUpFormStore.nameErrorMessage}</p>
+            : <p>3~7자까지 한글만 사용 가능</p>}
         </div>
         <div>
           <label htmlFor="input-username">
@@ -57,6 +64,9 @@ export default function SignUpForm() {
             value={signUpFormStore.username}
             onChange={(e) => signUpFormStore.changeUsername(e.target.value)}
           />
+          {signUpFormStore.usernameErrorMessage
+            ? <p>{signUpFormStore.usernameErrorMessage}</p>
+            : <p>영문소문자/숫자, 4~16자만 사용 가능</p>}
         </div>
         <div>
           <label htmlFor="input-password">
@@ -69,6 +79,9 @@ export default function SignUpForm() {
             value={signUpFormStore.password}
             onChange={(e) => signUpFormStore.changePassword(e.target.value)}
           />
+          {signUpFormStore.passwordErrorMessage
+            ? <p>{signUpFormStore.passwordErrorMessage}</p>
+            : <p>8글자 이상의 영문(대소문자), 숫자, 특수문자가 모두 포함되어야 함</p>}
         </div>
         <div>
           <label htmlFor="input-password-check">
@@ -81,6 +94,9 @@ export default function SignUpForm() {
             value={signUpFormStore.passwordCheck}
             onChange={(e) => signUpFormStore.changePasswordCheck(e.target.value)}
           />
+          {signUpFormStore.passwordCheckErrorMessage
+            ? <p>{signUpFormStore.passwordCheckErrorMessage}</p>
+            : null}
         </div>
         <button type="submit">
           회원가입

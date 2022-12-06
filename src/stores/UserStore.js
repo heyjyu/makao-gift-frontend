@@ -62,10 +62,12 @@ export default class UserStore extends Store {
 
   setAmount(amount) {
     this.amount = amount;
+    this.publish();
   }
 
   reduceAmount(amount) {
     this.amount -= amount;
+    this.publish();
   }
 
   changeSignUpStatus(status) {

@@ -150,31 +150,17 @@ Scenario('3글자 미만의 받는 분 성함을 입력한 경우', ({ I }) => {
   I.see('잔액: 50,000원');
 });
 
-Scenario('7글자 초과의 받는 분 성함을 입력한 경우', ({ I }) => {
+Scenario('한글이 아닌 글자가 포함된 성함을 입력한 경우', ({ I }) => {
   I.click('스토어');
   I.click('갈비천왕');
   I.click('send-present');
 
-  I.fillField('name', '홍길동홍길동홍길');
+  I.fillField('name', 'Hong');
   I.fillField('address', '서울시 행복구 행복동');
   I.fillField('message', '행복하세요~');
   I.submit();
 
   I.see('성함을 다시 확인해주세요');
-  I.see('잔액: 50,000원');
-});
-
-Scenario('100글자 초과의 받는 분 메시지를 입력한 경우', ({ I }) => {
-  I.click('스토어');
-  I.click('갈비천왕');
-  I.click('send-present');
-
-  I.fillField('name', '동길홍');
-  I.fillField('address', '서울시 행복구 행복동');
-  I.fillField('message', '행복하세요행복하세요행복하세요행복하세요행복하세요행복하세요행복하세요행복하세요행복하세요행복하세요행복하세요행복하세요행복하세요행복하세요행복하세요행복하세요행복하세요행복하세요행복하세요행복하세요~');
-  I.submit();
-
-  I.see('메시지 길이를 줄여주세요');
   I.see('잔액: 50,000원');
 });
 

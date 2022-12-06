@@ -65,6 +65,12 @@ export default class ApiService {
     };
   }
 
+  async countUser(username) {
+    const { data } = await this.instance.get(`/users?countOnly=true&username=${username}`);
+
+    return data.count;
+  }
+
   async postSession({
     username, password,
   }) {
