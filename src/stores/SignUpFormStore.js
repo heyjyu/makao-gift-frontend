@@ -15,9 +15,9 @@ export default class SignUpFormStore extends Store {
     this.publish();
   }
 
-  changeUsername(username) {
+  async changeUsername(username) {
     this.username = username;
-    this.validateUsername();
+    await this.validateUsername();
 
     this.publish();
   }

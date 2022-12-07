@@ -27,13 +27,7 @@ Scenario('회원 가입 성공', ({ I }) => {
 Scenario('존재하는 아이디를 입력한 경우', ({ I }) => {
   I.click('회원가입');
 
-  I.fillField('name', '홍길동');
   I.fillField('username', 'myid');
-  I.fillField('password', 'Abcdef1!');
-  I.fillField('password-check', 'Abcdef1!');
-
-  I.submit();
-
   I.see('해당 아이디는 사용할 수 없습니다');
 });
 
