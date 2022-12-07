@@ -37,6 +37,30 @@ describe('ProductDetail', () => {
     screen.getByText('선물하기');
   });
 
+  context('when selected count is 1', () => {
+    it('button to reduce count is disabled', async () => {
+      const id = 1;
+
+      await productStore.fetchProduct(id);
+      renderProducts();
+
+      expect(screen.getByText('-')).toHaveAttribute('disabled');
+    });
+  });
+
+  context('when selected count is more than 1', () => {
+    it('button to reduce count is not disabled', async () => {
+      const id = 1;
+
+      await productStore.fetchProduct(id);
+      renderProducts();
+
+      fireEvent.click(screen.getByText('+'));
+
+      expect(screen.getByText('-')).not.toHaveAttribute('disabled');
+    });
+  });
+
   context('when "선물하기" button is clicked', () => {
     context('when logged out', () => {
       it('navigates to login page', async () => {
