@@ -1,10 +1,17 @@
 import { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {
+  Link, useLocation, useNavigate, useSearchParams,
+} from 'react-router-dom';
 import { useLocalStorage } from 'usehooks-ts';
 import useOrderStore from '../hooks/useOrderStore';
+import Pagination from './Pagination';
 
 export default function Orders() {
   const navigate = useNavigate();
+
+  const location = useLocation();
+
+  const [searchParams] = useSearchParams();
 
   const orderStore = useOrderStore();
 
@@ -48,6 +55,11 @@ export default function Orders() {
           </li>
         ))}
       </ul>
+      <Pagination
+        url={location.pathname}
+        totalPages={orderStore.totalPages}
+        currentPage={searchParams.get('page') ?? 1}
+      />
     </div>
   );
 }
