@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import { useLocalStorage } from 'usehooks-ts';
 import Header from './components/Header';
 import useUserStore from './hooks/useUserStore';
@@ -18,6 +18,18 @@ import { apiService } from './services/ApiService';
 import defaultTheme from './styles/defaultTheme';
 
 import GlobalStyle from './styles/GlobalStyle';
+
+const Main = styled.main`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  min-width: 1024px;
+  height: calc(100vh - 4em);
+  min-height: 600px;
+  margin: 0 auto;
+`;
 
 export default function App() {
   const userStore = useUserStore();
@@ -38,7 +50,7 @@ export default function App() {
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
       <Header />
-      <main>
+      <Main>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={<SignUpPage />} />
@@ -49,7 +61,7 @@ export default function App() {
           <Route path="/orders" element={<OrdersPage />} />
           <Route path="/orders/:id" element={<OrderDetailPage />} />
         </Routes>
-      </main>
+      </Main>
     </ThemeProvider>
   );
 }

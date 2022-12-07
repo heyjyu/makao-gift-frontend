@@ -8,6 +8,7 @@ const Container = styled.header`
   font-weight: 700;
   width: 100%;
   height: 4em;
+  border-bottom: 1px solid #D9D9D9;
 `;
 
 const Wrapper = styled.div`
