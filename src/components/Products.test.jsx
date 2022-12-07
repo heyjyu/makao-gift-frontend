@@ -24,7 +24,7 @@ describe('Products', () => {
 
   context('with product', () => {
     it('renders "상품이 존재하지 않습니다" message', async () => {
-      await productStore.fetchProducts();
+      await productStore.fetchProducts({ page: 1, size: 8 });
       renderProducts();
 
       screen.getByText('갈비천왕+콜라1.25L');

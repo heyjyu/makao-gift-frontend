@@ -11,9 +11,15 @@ describe('ProductStore', () => {
 
   describe('fetchProducts', () => {
     it('loads products', async () => {
-      await productStore.fetchProducts();
+      await productStore.fetchProducts({ page: 1, size: 8 });
 
       expect(productStore.products).toHaveLength(2);
+    });
+
+    it('modifies totalPages', async () => {
+      await productStore.fetchProducts({ page: 1, size: 8 });
+
+      expect(productStore.totalPages).toBe(1);
     });
   });
 

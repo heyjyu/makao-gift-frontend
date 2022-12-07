@@ -22,9 +22,8 @@ Scenario('아이템이 1개인 경우 ', ({ I }) => {
   I.click('스토어');
 
   I.see('1');
-  I.see({ css: 'button[name=previous][disabled]' });
-  I.see({ css: 'button[name=next][disabled]' });
-  I.dontSee('2');
+  I.seeElement({ css: 'button[title=previous][disabled]' });
+  I.seeElement({ css: 'button[title=next][disabled]' });
 });
 
 Scenario('아이템이 9개인 경우', ({ I }) => {
@@ -36,8 +35,8 @@ Scenario('아이템이 9개인 경우', ({ I }) => {
 
   I.click('2');
   I.see('갈비천왕');
-  I.see({ css: 'button[name=previous][disabled]' });
-  I.see({ css: 'button[name=next][disabled]' });
+  I.dontSeeElement({ css: 'button[title=previous][disabled]' });
+  I.seeElement({ css: 'button[title=next][disabled]' });
 });
 
 Scenario('아이템이 81개인 경우', ({ I }) => {
@@ -47,9 +46,15 @@ Scenario('아이템이 81개인 경우', ({ I }) => {
 
   I.click('스토어');
 
-  I.see({ css: 'button[name=previous][disabled]' });
-  I.dontSee({ css: 'button[name=next][disabled]' });
-  I.see({ css: 'button[name=next][disabled=false]' });
+  I.see('1');
+  I.see('2');
+  I.see('3');
+  I.see('4');
+  I.see('5');
+  I.see('11');
+
+  I.seeElement({ css: 'button[title=previous][disabled]' });
+  I.dontSeeElement({ css: 'button[title=next][disabled]' });
 });
 
 Scenario('다음 버튼을 누르는 경우', ({ I }) => {
@@ -57,11 +62,17 @@ Scenario('다음 버튼을 누르는 경우', ({ I }) => {
 
   I.amOnPage('/');
 
+  I.click('스토어');
+
+  I.click({ name: 'next' });
+  I.click({ name: 'next' });
+  I.click({ name: 'next' });
   I.click({ name: 'next' });
 
-  I.see('11');
-  I.see({ css: 'button[name=previous][disabled=false]' });
-  I.see({ css: 'button[name=next][disabled]' });
+  I.see('6');
+
+  I.dontSeeElement({ css: 'button[title=previous][disabled]' });
+  I.dontSeeElement({ css: 'button[title=next][disabled]' });
 });
 
 Scenario('이전 버튼을 누르는 경우', ({ I }) => {
@@ -69,10 +80,18 @@ Scenario('이전 버튼을 누르는 경우', ({ I }) => {
 
   I.amOnPage('/');
 
+  I.click('스토어');
+
   I.click({ name: 'next' });
   I.click({ name: 'previous' });
 
-  I.dontSee('11');
-  I.see({ css: 'button[name=previous][disabled]' });
-  I.see({ css: 'button[name=next][disabled=false]' });
+  I.see('1');
+  I.see('2');
+  I.see('3');
+  I.see('4');
+  I.see('5');
+  I.see('11');
+
+  I.seeElement({ css: 'button[title=previous][disabled]' });
+  I.dontSeeElement({ css: 'button[title=next][disabled]' });
 });

@@ -19,6 +19,12 @@ jest.mock('react-router-dom', () => ({
   useNavigate() {
     return navigate;
   },
+  useLocation() {
+    return {};
+  },
+  useSearchParams() {
+    return [{ get: jest.fn() }];
+  },
 }));
 
 const context = describe;
@@ -91,7 +97,7 @@ describe('Orders', () => {
 
       renderOrders();
 
-      screen.getByRole('list');
+      expect(screen.queryAllByText('굽네치킨').length).toBe(2);
     });
   });
 

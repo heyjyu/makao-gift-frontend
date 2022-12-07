@@ -32,12 +32,15 @@ export default class ApiService {
     };
   }
 
-  async fetchProducts() {
-    const { data } = await this.instance.get('/products');
+  async fetchProducts({ page = 1, size }) {
+    const { data } = await this.instance.get(`/products?page=${page}&size=${size}`);
 
-    const { products } = data;
+    const { metadata, products } = data;
 
-    return products;
+    return {
+      metadata,
+      products,
+    };
   }
 
   async fetchProduct(id) {
@@ -97,12 +100,15 @@ export default class ApiService {
     };
   }
 
-  async fetchOrders() {
-    const { data } = await this.instance.get('/orders');
+  async fetchOrders({ page = 1, size }) {
+    const { data } = await this.instance.get(`/orders?page=${page}&size=${size}`);
 
-    const { orders } = data;
+    const { metadata, orders } = data;
 
-    return orders;
+    return {
+      metadata,
+      orders,
+    };
   }
 
   async fetchOrder(id) {

@@ -24,8 +24,11 @@ export default class OrderStore extends Store {
     }
   }
 
-  async fetchOrders() {
-    this.orders = await apiService.fetchOrders();
+  async fetchOrders({ page, size }) {
+    const { metadata, orders } = await apiService.fetchOrders({ page, size });
+
+    this.orders = orders;
+    this.totalPages = metadata.totalPages;
 
     this.publish();
   }
@@ -42,6 +45,7 @@ export default class OrderStore extends Store {
 
   reset() {
     this.orders = [];
+    this.totalPages = 0;
     this.order = null;
     this.orderStatus = '';
     this.fetchOrderDetailStatus = '';

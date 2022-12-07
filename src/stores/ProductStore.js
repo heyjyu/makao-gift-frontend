@@ -4,13 +4,15 @@ import Store from './Store';
 export default class ProductStore extends Store {
   constructor() {
     super();
-    this.products = [];
-    this.product = null;
-    this.count = 1;
+
+    this.reset();
   }
 
-  async fetchProducts() {
-    this.products = await apiService.fetchProducts();
+  async fetchProducts({ page, size }) {
+    const { metadata, products } = await apiService.fetchProducts({ page, size });
+
+    this.products = products;
+    this.totalPages = metadata.totalPages;
 
     this.publish();
   }
@@ -44,8 +46,10 @@ export default class ProductStore extends Store {
   }
 
   reset() {
-    this.count = 1;
+    this.products = [];
+    this.totalPages = 0;
     this.product = null;
+    this.count = 1;
 
     this.publish();
   }

@@ -1,11 +1,16 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import useProductStore from '../hooks/useProductStore';
 import numberFormat from '../utils/numberFormat';
+import Pagination from './Pagination';
 
 export default function Products() {
   const productStore = useProductStore();
 
   const { products } = productStore;
+
+  const location = useLocation();
+
+  const [searchParams] = useSearchParams();
 
   if (!products.length) {
     return (
@@ -35,6 +40,11 @@ export default function Products() {
           </li>
         ))}
       </ul>
+      <Pagination
+        url={location.pathname}
+        totalPages={productStore.totalPages}
+        currentPage={searchParams.get('page') ?? 1}
+      />
     </div>
   );
 }

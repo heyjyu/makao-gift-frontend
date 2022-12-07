@@ -8,6 +8,9 @@ const baseUrl = config.apiBaseUrl;
 
 const server = setupServer(
   rest.get(`${baseUrl}/products`, async (req, res, ctx) => res(ctx.json({
+    metadata: {
+      totalPages: 1,
+    },
     products: [
       {
         id: 2,
@@ -120,6 +123,9 @@ const server = setupServer(
   }),
 
   rest.get(`${baseUrl}/orders`, async (req, res, ctx) => res(ctx.json({
+    metadata: {
+      totalPages: 1,
+    },
     orders: [
       {
         address: '서울시 행복구 행복동',

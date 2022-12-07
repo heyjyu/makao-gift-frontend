@@ -40,9 +40,15 @@ describe('OrderStore', () => {
 
   describe('fetchOrders', () => {
     it('modifies orders', async () => {
-      await orderStore.fetchOrders();
+      await orderStore.fetchOrders({ page: 1, size: 8 });
 
       expect(orderStore.orders.length).toBe(2);
+    });
+
+    it('modifies totalPages', async () => {
+      await orderStore.fetchOrders({ page: 1, size: 8 });
+
+      expect(orderStore.totalPages).toBe(1);
     });
   });
 
