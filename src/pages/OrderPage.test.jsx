@@ -2,7 +2,9 @@
 
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
+import { ThemeProvider } from 'styled-components';
 import { productStore } from '../stores/ProductStore';
+import defaultTheme from '../styles/defaultTheme';
 import OrderPage from './OrderPage';
 
 const context = describe;
@@ -16,11 +18,13 @@ describe('OrderPage', () => {
 
       await productStore.fetchProduct(id);
 
-      render(
-        <MemoryRouter initialEntries={['/order']}>
-          <OrderPage />
-        </MemoryRouter>,
-      );
+      render((
+        <ThemeProvider theme={defaultTheme}>
+          <MemoryRouter initialEntries={['/order']}>
+            <OrderPage />
+          </MemoryRouter>
+        </ThemeProvider>
+      ));
 
       screen.getByText('선물하기');
     });

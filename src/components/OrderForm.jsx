@@ -5,6 +5,7 @@ import useOrderStore from '../hooks/useOrderStore';
 import useProductStore from '../hooks/useProductStore';
 import useUserStore from '../hooks/useUserStore';
 import numberFormat from '../utils/numberFormat';
+import Button from './ui/Button';
 
 export default function OrderForm() {
   const navigate = useNavigate();
@@ -116,9 +117,9 @@ export default function OrderForm() {
           />
           <p>100글자 이내로 입력해주세요</p>
         </div>
-        <button type="submit">
+        <Button type="submit">
           선물하기
-        </button>
+        </Button>
       </form>
     </div>
   );

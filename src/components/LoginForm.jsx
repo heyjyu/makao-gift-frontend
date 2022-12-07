@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useLocalStorage } from 'usehooks-ts';
 import useLoginFormStore from '../hooks/useLoginFormStore';
 import useUserStore from '../hooks/useUserStore';
+import Button from './ui/Button';
 
 export default function LoginForm({ location }) {
   const navigate = useNavigate();
@@ -74,9 +75,9 @@ export default function LoginForm({ location }) {
         {userStore.isLoginFailed
           ? <p>아이디 혹은 비밀번호가 맞지 않습니다</p>
           : null}
-        <button type="submit">
+        <Button type="submit">
           로그인하기
-        </button>
+        </Button>
       </form>
       <Link to="/signup">
         회원가입

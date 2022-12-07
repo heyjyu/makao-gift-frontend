@@ -1,4 +1,6 @@
 import { render, screen } from '@testing-library/react';
+import { ThemeProvider } from 'styled-components';
+import defaultTheme from '../styles/defaultTheme';
 import LoginPage from './LoginPage';
 
 const navigate = jest.fn();
@@ -20,7 +22,11 @@ jest.mock('react-router-dom', () => ({
 
 describe('LoginPage', () => {
   it('renders login button', () => {
-    render(<LoginPage />);
+    render((
+      <ThemeProvider theme={defaultTheme}>
+        <LoginPage />
+      </ThemeProvider>
+    ));
 
     screen.getByText('로그인하기');
   });
