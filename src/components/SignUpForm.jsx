@@ -6,6 +6,12 @@ import Button from './ui/Button';
 import Input from './ui/Input';
 import Title from './ui/Title';
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const StyledLink = styled(Link)`
   font-size: 1em;
   font-weight: 700;
@@ -14,6 +20,7 @@ const StyledLink = styled(Link)`
   align-items: center;
   width: 25em;
   height: 3.75em;
+  margin-top: 2em;
   border: none;
   border-radius: 0.5em;
   background: ${(props) => props.theme.colors.primary};
@@ -53,6 +60,17 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const Header = styled.h1`
+  font-size: 2.5em;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+`;
+
+const Message = styled.p`
+  font-size: 1.25em;
+  color: #444444;
+`;
+
 export default function SignUpForm() {
   const userStore = useUserStore();
   const signUpFormStore = useSignUpFormStore();
@@ -74,14 +92,14 @@ export default function SignUpForm() {
 
   if (userStore.isSignUpSuccessful) {
     return (
-      <div>
-        <h1>회원가입 완료</h1>
-        <p>마카오 선물하기 회원가입이 완료되었습니다.</p>
-        <p>정상적인 서비스 이용을 위해 로그인을 진행해주세요.</p>
+      <Container>
+        <Header>회원가입 완료</Header>
+        <Message>마카오 선물하기 회원가입이 완료되었습니다.</Message>
+        <Message>정상적인 서비스 이용을 위해 로그인을 진행해주세요.</Message>
         <StyledLink to="/login">
           로그인하기
         </StyledLink>
-      </div>
+      </Container>
     );
   }
 
