@@ -64,6 +64,7 @@ export default function ProductDetail() {
                 <button
                   type="button"
                   name="-"
+                  disabled={productStore.count < 2}
                   onClick={() => productStore.countDown()}
                 >
                   -

@@ -22,18 +22,9 @@ Scenario('수량을 줄이는 경우', ({ I }) => {
   I.click('스토어');
   I.click('갈비천왕');
 
+  I.seeElement({ css: 'button[disabled]' });
   I.click('+');
-  I.click('-');
-
-  I.see('1');
-  I.see('10,000원');
-});
-
-Scenario('선택한 상품이 1개일 때 수량을 줄이는 경우', ({ I }) => {
-  I.click('스토어');
-  I.click('갈비천왕');
-
-  I.click('-');
+  I.dontSeeElement({ css: 'button[disabled]' });
   I.click('-');
 
   I.see('1');
