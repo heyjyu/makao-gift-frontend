@@ -1,7 +1,9 @@
 import {
   render, fireEvent, screen, waitFor,
 } from '@testing-library/react';
+import { ThemeProvider } from 'styled-components';
 import { userStore } from '../stores/UserStore';
+import defaultTheme from '../styles/defaultTheme';
 import SignUpForm from './SignUpForm';
 
 const context = describe;
@@ -19,7 +21,11 @@ jest.mock('react-router-dom', () => ({
 
 describe('SignUpForm', () => {
   function renderSignUpForm() {
-    render(<SignUpForm />);
+    render((
+      <ThemeProvider theme={defaultTheme}>
+        <SignUpForm />
+      </ThemeProvider>
+    ));
   }
 
   beforeEach(() => {

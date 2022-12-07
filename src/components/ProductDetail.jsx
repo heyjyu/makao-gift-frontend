@@ -3,6 +3,7 @@ import { useLocalStorage } from 'usehooks-ts';
 import useProductStore from '../hooks/useProductStore';
 import useUserStore from '../hooks/useUserStore';
 import numberFormat from '../utils/numberFormat';
+import Button from './ui/Button';
 
 export default function ProductDetail() {
   const navigate = useNavigate();
@@ -95,9 +96,9 @@ export default function ProductDetail() {
         {numberFormat(productStore.totalPrice())}
         원
       </strong>
-      <button type="button" name="send-present" onClick={handleClickSendPresent}>
+      <Button type="button" name="send-present" onClick={handleClickSendPresent}>
         선물하기
-      </button>
+      </Button>
       {accessToken
       && !userStore.isAffordable(productStore.totalPrice())
       && (

@@ -1,9 +1,11 @@
 import {
   render, fireEvent, screen, waitFor,
 } from '@testing-library/react';
+import { ThemeProvider } from 'styled-components';
 import OrderFormStore from '../stores/OrderFormStore';
 import OrderStore from '../stores/OrderStore';
 import { productStore } from '../stores/ProductStore';
+import defaultTheme from '../styles/defaultTheme';
 import OrderForm from './OrderForm';
 
 const navigate = jest.fn();
@@ -25,7 +27,11 @@ describe('OrderForm', () => {
   });
 
   function renderOrderForm() {
-    render(<OrderForm />);
+    render((
+      <ThemeProvider theme={defaultTheme}>
+        <OrderForm />
+      </ThemeProvider>
+    ));
   }
 
   context('when logged out', () => {

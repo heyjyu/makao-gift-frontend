@@ -1,6 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { ThemeProvider } from 'styled-components';
 import { productStore } from '../stores/ProductStore';
 import { userStore } from '../stores/UserStore';
+import defaultTheme from '../styles/defaultTheme';
 import ProductDetail from './ProductDetail';
 
 const context = describe;
@@ -20,7 +22,9 @@ describe('ProductDetail', () => {
 
   function renderProducts() {
     render((
-      <ProductDetail />
+      <ThemeProvider theme={defaultTheme}>
+        <ProductDetail />
+      </ThemeProvider>
     ));
   }
 
