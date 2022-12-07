@@ -86,16 +86,16 @@ describe('SignUpForm', () => {
     });
   });
 
-  context('with empty name', () => {
+  context('with empty username', () => {
     it('renders error message', () => {
       renderSignUpForm();
 
       fireEvent.change(screen.getByLabelText('이름:'), {
-        target: { value: '' },
+        target: { value: '홍길동' },
       });
 
       fireEvent.change(screen.getByLabelText('아이디:'), {
-        target: { value: 'newid' },
+        target: { value: '' },
       });
 
       fireEvent.change(screen.getByLabelText('비밀번호:'), {
@@ -109,6 +109,58 @@ describe('SignUpForm', () => {
       fireEvent.click(screen.getByText('회원가입'));
 
       screen.getByText(/입력해주세요/);
+    });
+  });
+
+  context('with empty password', () => {
+    it('renders error message', () => {
+      renderSignUpForm();
+
+      fireEvent.change(screen.getByLabelText('이름:'), {
+        target: { value: '홍길동' },
+      });
+
+      fireEvent.change(screen.getByLabelText('아이디:'), {
+        target: { value: 'newid' },
+      });
+
+      fireEvent.change(screen.getByLabelText('비밀번호:'), {
+        target: { value: '' },
+      });
+
+      fireEvent.change(screen.getByLabelText('비밀번호 확인:'), {
+        target: { value: 'Abcdef1!' },
+      });
+
+      fireEvent.click(screen.getByText('회원가입'));
+
+      screen.getAllByText(/입력해주세요/);
+    });
+  });
+
+  context('with empty passwordCheck', () => {
+    it('renders error message', () => {
+      renderSignUpForm();
+
+      fireEvent.change(screen.getByLabelText('이름:'), {
+        target: { value: '홍길동' },
+      });
+
+      fireEvent.change(screen.getByLabelText('아이디:'), {
+        target: { value: 'newid' },
+      });
+
+      fireEvent.change(screen.getByLabelText('비밀번호:'), {
+        target: { value: 'Abcdef1!' },
+      });
+
+      fireEvent.change(screen.getByLabelText('비밀번호 확인:'), {
+        target: { value: '' },
+      });
+
+      fireEvent.click(screen.getByText('회원가입'));
+
+      screen.getAllByText(/입력해주세요/);
     });
   });
 });

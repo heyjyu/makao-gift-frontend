@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import useSignUpFormStore from '../hooks/useSignUpFormStore';
 import useUserStore from '../hooks/useUserStore';
 import Button from './ui/Button';
+import Input from './ui/Input';
+import Title from './ui/Title';
 
 const StyledLink = styled(Link)`
   font-size: 1em;
@@ -85,68 +87,43 @@ export default function SignUpForm() {
 
   return (
     <div>
-      <h1>SIGN UP</h1>
+      <Title>SIGN UP</Title>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="input-name">
-            이름:
-          </label>
-          <input
-            type="text"
-            name="name"
-            id="input-name"
-            value={signUpFormStore.name}
-            onChange={(e) => signUpFormStore.changeName(e.target.value)}
-          />
-          {signUpFormStore.nameErrorMessage
-            ? <p>{signUpFormStore.nameErrorMessage}</p>
-            : <p>3~7자까지 한글만 사용 가능</p>}
-        </div>
-        <div>
-          <label htmlFor="input-username">
-            아이디:
-          </label>
-          <input
-            type="text"
-            name="username"
-            id="input-username"
-            value={signUpFormStore.username}
-            onChange={(e) => signUpFormStore.changeUsername(e.target.value)}
-          />
-          {signUpFormStore.usernameErrorMessage
-            ? <p>{signUpFormStore.usernameErrorMessage}</p>
-            : <p>영문소문자/숫자, 4~16자만 사용 가능</p>}
-        </div>
-        <div>
-          <label htmlFor="input-password">
-            비밀번호:
-          </label>
-          <input
-            type="password"
-            name="password"
-            id="input-password"
-            value={signUpFormStore.password}
-            onChange={(e) => signUpFormStore.changePassword(e.target.value)}
-          />
-          {signUpFormStore.passwordErrorMessage
-            ? <p>{signUpFormStore.passwordErrorMessage}</p>
-            : <p>8글자 이상의 영문(대소문자), 숫자, 특수문자가 모두 포함되어야 함</p>}
-        </div>
-        <div>
-          <label htmlFor="input-password-check">
-            비밀번호 확인:
-          </label>
-          <input
-            type="password"
-            name="password-check"
-            id="input-password-check"
-            value={signUpFormStore.passwordCheck}
-            onChange={(e) => signUpFormStore.changePasswordCheck(e.target.value)}
-          />
-          {signUpFormStore.passwordCheckErrorMessage
-            ? <p>{signUpFormStore.passwordCheckErrorMessage}</p>
-            : null}
-        </div>
+        <Input
+          name="name"
+          label="이름:"
+          type="text"
+          value={signUpFormStore.name}
+          handleChange={(e) => signUpFormStore.changeName(e.target.value)}
+          message="3~7자까지 한글만 사용 가능"
+          errorMessage={signUpFormStore.nameErrorMessage}
+        />
+        <Input
+          name="username"
+          label="아이디:"
+          type="text"
+          value={signUpFormStore.username}
+          handleChange={(e) => signUpFormStore.changeUsername(e.target.value)}
+          message="영문소문자/숫자, 4~16자만 사용 가능"
+          errorMessage={signUpFormStore.usernameErrorMessage}
+        />
+        <Input
+          name="password"
+          label="비밀번호:"
+          type="password"
+          value={signUpFormStore.password}
+          handleChange={(e) => signUpFormStore.changePassword(e.target.value)}
+          message="8글자 이상의 영문(대소문자), 숫자, 특수문자가 모두 포함되어야 함"
+          errorMessage={signUpFormStore.passwordErrorMessage}
+        />
+        <Input
+          name="password-check"
+          label="비밀번호 확인:"
+          type="password"
+          value={signUpFormStore.passwordCheck}
+          handleChange={(e) => signUpFormStore.changePasswordCheck(e.target.value)}
+          errorMessage={signUpFormStore.passwordCheckErrorMessage}
+        />
         <Button type="submit">
           회원가입
         </Button>
