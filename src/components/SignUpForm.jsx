@@ -12,6 +12,10 @@ const Container = styled.div`
   align-items: center;
 `;
 
+const Form = styled.form`
+  width: 25em;
+`;
+
 const StyledLink = styled(Link)`
   font-size: 1em;
   font-weight: 700;
@@ -106,7 +110,7 @@ export default function SignUpForm() {
   return (
     <div>
       <Title>SIGN UP</Title>
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <Input
           name="name"
           label="이름:"
@@ -145,7 +149,7 @@ export default function SignUpForm() {
         <Button type="submit">
           회원가입
         </Button>
-      </form>
+      </Form>
     </div>
   );
 }

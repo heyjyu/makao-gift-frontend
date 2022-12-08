@@ -57,11 +57,11 @@ describe('OrderForm', () => {
 
         renderOrderForm();
 
-        fireEvent.change(screen.getByLabelText('받는 분 성함'), {
+        fireEvent.change(screen.getByLabelText(/받는 분 성함/), {
           target: { value: '동길홍' },
         });
 
-        fireEvent.change(screen.getByLabelText('받는 분 주소'), {
+        fireEvent.change(screen.getByLabelText(/받는 분 주소/), {
           target: { value: '서울시 행복구 행복동' },
         });
 
@@ -85,7 +85,7 @@ describe('OrderForm', () => {
 
         renderOrderForm();
 
-        fireEvent.change(screen.getByLabelText('받는 분 주소'), {
+        fireEvent.change(screen.getByLabelText(/받는 분 주소/), {
           target: { value: '서울시 행복구 행복동' },
         });
 
@@ -107,7 +107,7 @@ describe('OrderForm', () => {
 
         renderOrderForm();
 
-        fireEvent.change(screen.getByLabelText('받는 분 성함'), {
+        fireEvent.change(screen.getByLabelText(/받는 분 성함/), {
           target: { value: '동길홍' },
         });
 
