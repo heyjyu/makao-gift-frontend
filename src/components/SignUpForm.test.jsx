@@ -61,7 +61,7 @@ describe('SignUpForm', () => {
   });
 
   context('with empty name', () => {
-    it('renders error message', () => {
+    it('renders error message', async () => {
       renderSignUpForm();
 
       fireEvent.change(screen.getByLabelText('이름:'), {
@@ -69,7 +69,7 @@ describe('SignUpForm', () => {
       });
 
       fireEvent.change(screen.getByLabelText('아이디:'), {
-        target: { value: 'newid' },
+        target: { value: 'myid' },
       });
 
       fireEvent.change(screen.getByLabelText('비밀번호:'), {
@@ -82,12 +82,14 @@ describe('SignUpForm', () => {
 
       fireEvent.click(screen.getByText('회원가입'));
 
-      screen.getByText(/입력해주세요/);
+      await waitFor(() => {
+        screen.getByText(/입력해주세요/);
+      });
     });
   });
 
   context('with empty username', () => {
-    it('renders error message', () => {
+    it('renders error message', async () => {
       renderSignUpForm();
 
       fireEvent.change(screen.getByLabelText('이름:'), {
@@ -108,12 +110,14 @@ describe('SignUpForm', () => {
 
       fireEvent.click(screen.getByText('회원가입'));
 
-      screen.getByText(/입력해주세요/);
+      await waitFor(() => {
+        screen.getByText(/입력해주세요/);
+      });
     });
   });
 
   context('with empty password', () => {
-    it('renders error message', () => {
+    it('renders error message', async () => {
       renderSignUpForm();
 
       fireEvent.change(screen.getByLabelText('이름:'), {
@@ -121,7 +125,7 @@ describe('SignUpForm', () => {
       });
 
       fireEvent.change(screen.getByLabelText('아이디:'), {
-        target: { value: 'newid' },
+        target: { value: 'myid' },
       });
 
       fireEvent.change(screen.getByLabelText('비밀번호:'), {
@@ -134,12 +138,14 @@ describe('SignUpForm', () => {
 
       fireEvent.click(screen.getByText('회원가입'));
 
-      screen.getAllByText(/입력해주세요/);
+      await waitFor(() => {
+        screen.getByText(/입력해주세요/);
+      });
     });
   });
 
   context('with empty passwordCheck', () => {
-    it('renders error message', () => {
+    it('renders error message', async () => {
       renderSignUpForm();
 
       fireEvent.change(screen.getByLabelText('이름:'), {
@@ -147,7 +153,7 @@ describe('SignUpForm', () => {
       });
 
       fireEvent.change(screen.getByLabelText('아이디:'), {
-        target: { value: 'newid' },
+        target: { value: 'myid' },
       });
 
       fireEvent.change(screen.getByLabelText('비밀번호:'), {
@@ -160,7 +166,9 @@ describe('SignUpForm', () => {
 
       fireEvent.click(screen.getByText('회원가입'));
 
-      screen.getAllByText(/입력해주세요/);
+      await waitFor(() => {
+        screen.getByText(/입력해주세요/);
+      });
     });
   });
 });
