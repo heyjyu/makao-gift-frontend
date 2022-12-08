@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 import { useLocalStorage } from 'usehooks-ts';
 import useOrderFormStore from '../hooks/useOrderFormStore';
 import useOrderStore from '../hooks/useOrderStore';
@@ -6,6 +7,65 @@ import useProductStore from '../hooks/useProductStore';
 import useUserStore from '../hooks/useUserStore';
 import numberFormat from '../utils/numberFormat';
 import Button from './ui/Button';
+import Input from './ui/Input';
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  min-width: 1024px;
+  height: 100%;
+  min-height: 60em;
+  padding-block: 5em;
+`;
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 50em;
+  margin-block: 2em;
+  padding: 5em 8em;
+  border: 1px solid #D9D9D9;
+  border-radius: 0.5em;
+`;
+
+const Image = styled.img`
+  border-radius: 0.5em;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+`;
+
+const ProductInformation = styled.div`
+  display: flex;
+  gap: 2em;
+  margin-bottom: 3em;
+
+  div {
+    display: grid;
+    grid-template: auto 1fr auto auto / 1fr;
+    gap: 1em;
+  }
+
+  p:first-child {
+    color: #999999;
+  }
+`;
+
+const ProductName = styled.p`
+  line-height: 1.25em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const StyledButton = styled(Button)`
+  width: 31.25em;
+`;
 
 export default function OrderForm() {
   const navigate = useNavigate();
@@ -51,76 +111,66 @@ export default function OrderForm() {
   }
 
   return (
-    <div>
-      <img
-        src={product.imageUrl}
-        alt={product.name}
-        width={280}
-        height={280}
-      />
-      <form onSubmit={handleSubmit}>
-        <p>제조사</p>
-        <p>상품명</p>
-        <p>
-          구매수량:
-          {' '}
-          {productStore.count}
-        </p>
-        <p>
-          총 상품금액:
-          {' '}
-          {numberFormat(productStore.totalPrice())}
-          원
-        </p>
-        <div>
-          <label htmlFor="input-name">
-            받는 분 성함
-          </label>
-          <input
-            type="text"
+    <Container>
+      <Wrapper>
+        <ProductInformation>
+          <Image
+            src={product.imageUrl}
+            alt={product.name}
+            width={150}
+            height={150}
+          />
+          <div>
+            <p>{product.producer}</p>
+            <ProductName>{product.name}</ProductName>
+            <p>
+              구매수량:
+              {' '}
+              {productStore.count}
+            </p>
+            <p>
+              총 상품금액:
+              {' '}
+              {numberFormat(productStore.totalPrice())}
+              원
+            </p>
+          </div>
+        </ProductInformation>
+        <Form onSubmit={handleSubmit}>
+          <Input
             name="name"
-            id="input-name"
+            label="받는 분 성함"
+            type="text"
             value={orderFormStore.name}
-            maxLength={7}
-            onChange={(e) => orderFormStore.changeName(e.target.value)}
+            required
+            maxLength="7"
+            handleChange={(e) => orderFormStore.changeName(e.target.value)}
+            message="3~7자까지 한글만 사용 가능"
+            errorMessage={orderFormStore.nameErrorMessage}
           />
-          {orderFormStore.nameErrorMessage
-            ? <p>{orderFormStore.nameErrorMessage}</p>
-            : <p>3~7자까지 한글만 사용 가능</p>}
-        </div>
-        <div>
-          <label htmlFor="input-address">
-            받는 분 주소
-          </label>
-          <input
-            type="text"
+          <Input
             name="address"
-            id="input-address"
-            value={orderFormStore.address}
-            onChange={(e) => orderFormStore.changeAddress(e.target.value)}
-          />
-          {orderFormStore.addressErrorMessage
-            ? <p>{orderFormStore.addressErrorMessage}</p>
-            : null}
-        </div>
-        <div>
-          <label htmlFor="input-message">
-            받는 분께 보내는 메시지
-          </label>
-          <input
+            label="받는 분 주소"
             type="text"
-            name="message"
-            id="input-message"
-            maxLength={100}
-            value={orderFormStore.message}
-            onChange={(e) => orderFormStore.changeMessage(e.target.value)}
+            value={orderFormStore.address}
+            required
+            handleChange={(e) => orderFormStore.changeAddress(e.target.value)}
+            errorMessage={orderFormStore.addressErrorMessage}
           />
-          <p>100글자 이내로 입력해주세요</p>
-        </div>
-        <Button type="submit">
-          선물하기
-        </Button>
-      </form>
-    </div>
+          <Input
+            name="message"
+            label="받는 분께 보내는 메시지"
+            type="text"
+            value={orderFormStore.message}
+            maxLength="100"
+            handleChange={(e) => orderFormStore.changeMessage(e.target.value)}
+            message="100글자 이내로 입력해주세요"
+          />
+          <StyledButton type="submit">
+            선물하기
+          </StyledButton>
+        </Form>
+      </Wrapper>
+    </Container>
   );
 }

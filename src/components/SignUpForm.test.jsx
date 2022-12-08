@@ -1,5 +1,5 @@
 import {
-  render, fireEvent, screen, waitFor,
+  render, fireEvent, screen, waitFor, cleanup,
 } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import { userStore } from '../stores/UserStore';

@@ -5,7 +5,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  width: 25em;
+  width: 100%;
   height: 7em;
   margin-bottom: 1.5em;
   color: #A0A0A0;
@@ -34,10 +34,15 @@ const StyledInput = styled.input`
 const Label = styled.label`
   font-weight: 700;
   display: block;
+  color: inherit;
 `;
 
 const Required = styled.span`
   color: #FF424D;
+`;
+
+const Message = styled.p`
+  color: inherit;
 `;
 
 const Error = styled.p`
@@ -70,7 +75,7 @@ export default function Input({
       />
       {errorMessage
         ? <Error>{errorMessage}</Error>
-        : <p>{message}</p>}
+        : <Message>{message}</Message>}
     </Container>
   );
 }
