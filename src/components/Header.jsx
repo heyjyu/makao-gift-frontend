@@ -31,7 +31,7 @@ const Navigation = styled.nav`
   width: 100%;
   height: 100%;
 
-  ul:first-child{
+  ul:first-child {
     flex: 1;
   };
 

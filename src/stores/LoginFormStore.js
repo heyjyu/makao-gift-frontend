@@ -9,14 +9,14 @@ export default class LoginFormStore extends Store {
 
   changeUsername(username) {
     this.username = username;
-    this.validate();
+    this.validateUsername();
 
     this.publish();
   }
 
   changePassword(password) {
     this.password = password;
-    this.validate();
+    this.validatePassword();
 
     this.publish();
   }
@@ -30,29 +30,29 @@ export default class LoginFormStore extends Store {
   }
 
   validate() {
+    this.errors = {};
+
+    this.validateUsername();
+
+    this.validatePassword();
+
     if (this.username === '' && this.password === '') {
       this.errors = { username: true, password: true };
-      this.publish();
-
-      return;
     }
 
+    this.publish();
+  }
+
+  validateUsername() {
     if (this.username === '') {
       this.errors = { username: true };
-      this.publish();
-
-      return;
     }
+  }
 
+  validatePassword() {
     if (this.password === '') {
       this.errors = { password: true };
-      this.publish();
-
-      return;
     }
-
-    this.errors = {};
-    this.publish();
   }
 
   setErrorMessage(message) {
