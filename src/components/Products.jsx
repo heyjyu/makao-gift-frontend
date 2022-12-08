@@ -54,6 +54,13 @@ const Price = styled.strong`
   font-size: 1.25em;
 `;
 
+const Message = styled.p`
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-top: 5em;
+  text-align: center;
+`;
+
 export default function Products() {
   const productStore = useProductStore();
 
@@ -65,7 +72,9 @@ export default function Products() {
 
   if (!products.length) {
     return (
-      <p>상품이 존재하지 않습니다</p>
+      <Container>
+        <Message>상품이 존재하지 않습니다</Message>
+      </Container>
     );
   }
 
