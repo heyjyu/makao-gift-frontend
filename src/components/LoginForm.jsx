@@ -1,9 +1,49 @@
 /* eslint-disable react/prop-types */
 import { Link, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 import { useLocalStorage } from 'usehooks-ts';
 import useLoginFormStore from '../hooks/useLoginFormStore';
 import useUserStore from '../hooks/useUserStore';
 import Button from './ui/Button';
+import Title from './ui/Title';
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const StyledLink = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25em;
+  height: 3.75em;
+  margin-top: 2.5em;
+`;
+
+const Input = styled.input`
+  font-size: 1em;
+  font-weight: 400;
+  height: 3.75em;
+  margin-top: 1em;
+  padding: 1em;
+  border: ${(props) => (`1px solid${props.error ? '#FF424D' : '#D8D8D8'}`)};
+  color: #666666;
+
+  :focus {
+    font-size: 1em;
+    border: ${(props) => (`1px solid${props.error ? '#FF424D' : props.theme.colors.primary}`)};
+    outline: none;
+    color: #666666;
+  }
+`;
+
+const Error = styled.p`
+  display: flex;
+  align-items: center;
+  height: 3.75em;
+  color: #FF424D;
+`;
 
 export default function LoginForm({ location }) {
   const navigate = useNavigate();
@@ -53,35 +93,39 @@ export default function LoginForm({ location }) {
 
   return (
     <div>
-      <h1>USER LOGIN</h1>
-      <form onSubmit={handleSubmit}>
-        <input
+      <Title>USER LOGIN</Title>
+      <Form onSubmit={handleSubmit}>
+        <Input
           type="text"
           name="username"
           placeholder="아이디"
           value={loginFormStore.username}
+          error={loginFormStore.errors.username || userStore.isLoginFailed}
           onChange={handleChangeUsername}
         />
-        <input
+        <Input
           type="password"
           name="password"
           placeholder="비밀번호"
           value={loginFormStore.password}
+          error={loginFormStore.errors.password || userStore.isLoginFailed}
           onChange={handleChangePassword}
         />
-        {loginFormStore.errorMessage
-          ? <p>{loginFormStore.errorMessage}</p>
-          : null}
-        {userStore.isLoginFailed
-          ? <p>아이디 혹은 비밀번호가 맞지 않습니다</p>
-          : null}
+        <Error>
+          {loginFormStore.errorMessage
+            ? loginFormStore.errorMessage
+            : null}
+          {userStore.isLoginFailed
+            ? '아이디 혹은 비밀번호가 맞지 않습니다'
+            : null}
+        </Error>
         <Button type="submit">
           로그인하기
         </Button>
-      </form>
-      <Link to="/signup">
+      </Form>
+      <StyledLink to="/signup">
         회원가입
-      </Link>
+      </StyledLink>
     </div>
   );
 }
