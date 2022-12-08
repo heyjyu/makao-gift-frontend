@@ -17,8 +17,8 @@ jest.mock('react-router-dom', () => ({
   },
   useLocation() {
     return {
-      location: {
-        pathname: '',
+      pathname: {
+        startsWith: jest.fn(),
       },
     };
   },

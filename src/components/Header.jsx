@@ -90,12 +90,12 @@ export default function Header() {
               </StyledLink>
             </li>
             <li>
-              <StyledLink to="/products" selected={location.pathname === '/products'}>
+              <StyledLink to="/products" selected={location.pathname.startsWith('/products') || location.pathname === '/order'}>
                 스토어
               </StyledLink>
             </li>
             <li>
-              <StyledLink to="/orders" selected={location.pathname === '/orders'}>
+              <StyledLink to="/orders" selected={location.pathname.startsWith('/orders')}>
                 주문조회
               </StyledLink>
             </li>
