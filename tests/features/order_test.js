@@ -172,7 +172,6 @@ Scenario('잔액이 부족한 경우', ({ I }) => {
   I.click('+');
   I.click('+');
   I.click('+');
-  I.click('send-present');
 
   I.see('잔액이 부족하여 선물하기가 불가합니다');
   I.see('잔액: 50,000원');
