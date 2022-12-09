@@ -18,7 +18,7 @@ describe('OrderDetail', () => {
     render(<OrderDetail />);
   }
 
-  context('with right access Token', () => {
+  context('with right access token', () => {
     beforeEach(() => {
       apiService.setAccessToken('ACCESS.TOKEN');
     });
@@ -46,7 +46,7 @@ describe('OrderDetail', () => {
     });
   });
 
-  context('with wrong access Token', () => {
+  context('with wrong access token', () => {
     beforeEach(() => {
       apiService.setAccessToken('WRONG.TOKEN');
     });
