@@ -57,10 +57,10 @@ export default class ApiService {
   }
 
   async createUser({
-    name, username, password, passwordCheck,
+    name, username, password,
   }) {
     const { data } = await this.instance.post('/users', {
-      name, username, password, passwordCheck,
+      name, username, password,
     });
 
     return {

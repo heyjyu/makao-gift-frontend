@@ -79,7 +79,7 @@ export default function SignUpForm() {
   const userStore = useUserStore();
   const signUpFormStore = useSignUpFormStore();
   const {
-    name, username, password, passwordCheck,
+    name, username, password,
   } = signUpFormStore;
 
   const handleSubmit = (e) => {
@@ -89,7 +89,7 @@ export default function SignUpForm() {
 
     if (signUpFormStore.isValidateSuccessful) {
       userStore.signUp({
-        name, username, password, passwordCheck,
+        name, username, password,
       });
     }
   };

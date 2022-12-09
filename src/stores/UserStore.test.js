@@ -15,10 +15,9 @@ describe('UserStore', () => {
         const name = '홍길동';
         const username = 'myid';
         const password = 'Abcdef1!';
-        const passwordCheck = 'Abcdef1!';
 
         await userStore.signUp({
-          name, username, password, passwordCheck,
+          name, username, password,
         });
 
         expect(userStore.isSignUpSuccessful).toBeTruthy();
@@ -30,10 +29,9 @@ describe('UserStore', () => {
         const name = '홍길동';
         const username = 'existingid';
         const password = 'Abcdef1!';
-        const passwordCheck = 'Abcdef1!';
 
         await userStore.signUp({
-          name, username, password, passwordCheck,
+          name, username, password,
         });
 
         expect(userStore.isSignUpFailed).toBeTruthy();
