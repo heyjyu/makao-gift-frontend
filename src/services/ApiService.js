@@ -89,10 +89,10 @@ export default class ApiService {
   }
 
   async createOrder({
-    productId, count, to, address, message,
+    productId, count, unitPrice, to, address, message,
   }) {
     const { data } = await this.instance.post('/orders', {
-      productId, count, to, address, message,
+      productId, count, unitPrice, to, address, message,
     });
 
     return {

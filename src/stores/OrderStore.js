@@ -9,13 +9,13 @@ export default class OrderStore extends Store {
   }
 
   async orderItem({
-    productId, count, to, address, message,
+    productId, count, unitPrice, to, address, message,
   }) {
     this.changeOrderStatus('processing');
 
     try {
       await apiService.createOrder({
-        productId, count, to, address, message,
+        productId, count, unitPrice, to, address, message,
       });
 
       this.changeOrderStatus('successful');

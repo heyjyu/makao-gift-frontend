@@ -106,10 +106,10 @@ const server = setupServer(
 
   rest.post(`${baseUrl}/orders`, async (req, res, ctx) => {
     const {
-      productId, count, to, address,
+      productId, count, unitPrice, to, address,
     } = await req.json();
 
-    if (productId && count > 0 && to && address) {
+    if (productId && count > 0 && unitPrice > 0 && to && address) {
       return res(
         ctx.json({
           id: 1,
