@@ -108,7 +108,7 @@ export default function SignUpForm() {
   }
 
   return (
-    <div>
+    <Container>
       <Title>SIGN UP</Title>
       <Form onSubmit={handleSubmit}>
         <Input
@@ -150,6 +150,6 @@ export default function SignUpForm() {
           회원가입
         </Button>
       </Form>
-    </div>
+    </Container>
   );
 }
