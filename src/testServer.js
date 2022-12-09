@@ -47,13 +47,12 @@ const server = setupServer(
 
   rest.post(`${baseUrl}/users`, async (req, res, ctx) => {
     const {
-      name, username, password, passwordCheck,
+      name, username, password,
     } = await req.json();
 
     if (name === '홍길동'
     && username === 'myid'
-    && password === 'Abcdef1!'
-    && passwordCheck === 'Abcdef1!') {
+    && password === 'Abcdef1!') {
       return res(
         ctx.json({
           id: 1,
