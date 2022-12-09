@@ -27,7 +27,7 @@ const Main = styled.main`
   max-width: 1400px;
   min-width: 1024px;
   height: calc(100vh - 4em);
-  min-height: 600px;
+  min-height: 50em;
   margin: 0 auto;
 `;
 
