@@ -88,6 +88,7 @@ export default function OrderForm() {
       await orderStore.orderItem({
         productId: product.id,
         count: productStore.count,
+        unitPrice: product.price,
         to: orderFormStore.name,
         address: orderFormStore.address,
         message: orderFormStore.message,

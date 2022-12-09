@@ -25,12 +25,13 @@ describe('OrderStore', () => {
       it('changes orderStatus to successful', async () => {
         const productId = 1;
         const count = 2;
+        const unitPrice = 10000;
         const to = '동길홍';
         const address = '서울시 행복구 행복동';
         const message = '행복하세요!';
 
         await orderStore.orderItem({
-          productId, count, to, address, message,
+          productId, count, unitPrice, to, address, message,
         });
 
         expect(orderStore.isOrderSuccessful).toBeTruthy();
