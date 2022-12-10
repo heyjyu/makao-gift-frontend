@@ -41350,14 +41350,14 @@ const PreviousButton = (0, _styledComponentsDefault.default).button`
   width: 1em;
   height: 1em;
   border: none;
-  background: url(/assets/images/left-arrow.png) no-repeat 100% 100%;
+  background: url(/makao-gift-frontend/assets/images/left-arrow.png) no-repeat 100% 100%;
   background-size: contain;
   text-indent: -10em;
   overflow: hidden;
   cursor: pointer;
 
   :disabled {
-    background: url(/assets/images/left-arrow-disabled.png) no-repeat 100% 100%;
+    background: url(/makao-gift-frontend/assets/images/left-arrow-disabled.png) no-repeat 100% 100%;
     background-size: contain;
     cursor: default;
   }
@@ -41367,14 +41367,14 @@ const NextButton = (0, _styledComponentsDefault.default).button`
   width: 1em;
   height: 1em;
   border: none;
-  background: url(/assets/images/right-arrow.png) no-repeat 100% 100%;
+  background: url(/makao-gift-frontend/assets/images/right-arrow.png) no-repeat 100% 100%;
   background-size: contain;
   text-indent: -10em;
   overflow: hidden;
   cursor: pointer;
 
   :disabled {
-    background: url(/assets/images/right-arrow-disabled.png) no-repeat 100% 100%;
+    background: url(/makao-gift-frontend/assets/images/right-arrow-disabled.png) no-repeat 100% 100%;
     background-size: contain;
     cursor: default;
   }
@@ -41710,14 +41710,14 @@ const ReduceButton = (0, _styledComponentsDefault.default).button`
   height: 2em;
   margin-left: 0.5em;
   border: none;
-  background: url(/assets/images/minus-black.png) no-repeat 100% 100%;
+  background: url(/makao-gift-frontend/assets/images/minus-black.png) no-repeat 100% 100%;
   background-size: contain;
   text-indent: -10em;
   overflow: hidden;
   cursor: pointer;
 
   :disabled {
-    background: url(/assets/images/minus-gray.png) no-repeat 100% 100%;
+    background: url(/makao-gift-frontend/assets/images/minus-gray.png) no-repeat 100% 100%;
     background-size: contain;
     cursor: default;
   }
@@ -41728,7 +41728,7 @@ const AddButton = (0, _styledComponentsDefault.default).button`
   height: 2em;
   margin-right: 0.5em;
   border: none;
-  background: url(/assets/images/plus-black.png) no-repeat 100% 100%;
+  background: url(/makao-gift-frontend/assets/images/plus-black.png) no-repeat 100% 100%;
   background-size: contain;
   text-indent: -10em;
   overflow: hidden;
@@ -42107,7 +42107,7 @@ const Container = (0, _styledComponentsDefault.default).div`
   left: 0;
   width: 100vw;
   height: 18em;
-  background: url(/assets/images/banner.png) center / cover , linear-gradient(90deg, #FCBE2C, #F7FF73);
+  background: url(/makao-gift-frontend/assets/images/banner.png) center / cover , linear-gradient(90deg, #FCBE2C, #F7FF73);
 `;
 _c = Container;
 const Wrapper = (0, _styledComponentsDefault.default).div`

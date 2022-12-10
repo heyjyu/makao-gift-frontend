@@ -388,14 +388,14 @@ p=o("acw62");function q(){return q=Object.assign?Object.assign.bind():function(e
   width: 1em;
   height: 1em;
   border: none;
-  background: url(/assets/images/left-arrow.png) no-repeat 100% 100%;
+  background: url(/makao-gift-frontend/assets/images/left-arrow.png) no-repeat 100% 100%;
   background-size: contain;
   text-indent: -10em;
   overflow: hidden;
   cursor: pointer;
 
   :disabled {
-    background: url(/assets/images/left-arrow-disabled.png) no-repeat 100% 100%;
+    background: url(/makao-gift-frontend/assets/images/left-arrow-disabled.png) no-repeat 100% 100%;
     background-size: contain;
     cursor: default;
   }
@@ -403,14 +403,14 @@ p=o("acw62");function q(){return q=Object.assign?Object.assign.bind():function(e
   width: 1em;
   height: 1em;
   border: none;
-  background: url(/assets/images/right-arrow.png) no-repeat 100% 100%;
+  background: url(/makao-gift-frontend/assets/images/right-arrow.png) no-repeat 100% 100%;
   background-size: contain;
   text-indent: -10em;
   overflow: hidden;
   cursor: pointer;
 
   :disabled {
-    background: url(/assets/images/right-arrow-disabled.png) no-repeat 100% 100%;
+    background: url(/makao-gift-frontend/assets/images/right-arrow-disabled.png) no-repeat 100% 100%;
     background-size: contain;
     cursor: default;
   }
@@ -533,14 +533,14 @@ p=o("acw62");function q(){return q=Object.assign?Object.assign.bind():function(e
   height: 2em;
   margin-left: 0.5em;
   border: none;
-  background: url(/assets/images/minus-black.png) no-repeat 100% 100%;
+  background: url(/makao-gift-frontend/assets/images/minus-black.png) no-repeat 100% 100%;
   background-size: contain;
   text-indent: -10em;
   overflow: hidden;
   cursor: pointer;
 
   :disabled {
-    background: url(/assets/images/minus-gray.png) no-repeat 100% 100%;
+    background: url(/makao-gift-frontend/assets/images/minus-gray.png) no-repeat 100% 100%;
     background-size: contain;
     cursor: default;
   }
@@ -549,7 +549,7 @@ p=o("acw62");function q(){return q=Object.assign?Object.assign.bind():function(e
   height: 2em;
   margin-right: 0.5em;
   border: none;
-  background: url(/assets/images/plus-black.png) no-repeat 100% 100%;
+  background: url(/makao-gift-frontend/assets/images/plus-black.png) no-repeat 100% 100%;
   background-size: contain;
   text-indent: -10em;
   overflow: hidden;
@@ -579,7 +579,7 @@ p=o("acw62");function q(){return q=Object.assign?Object.assign.bind():function(e
   left: 0;
   width: 100vw;
   height: 18em;
-  background: url(/assets/images/banner.png) center / cover , linear-gradient(90deg, #FCBE2C, #F7FF73);
+  background: url(/makao-gift-frontend/assets/images/banner.png) center / cover , linear-gradient(90deg, #FCBE2C, #F7FF73);
 `,Al=Dn.div`
   display: flex;
   flex-direction: column;
@@ -724,4 +724,4 @@ p=o("acw62");function q(){return q=Object.assign?Object.assign.bind():function(e
   min-height: 50em;
   margin: 0 auto;
 `;const fs=localStorage.getItem("accessToken"),ds=JSON.parse(fs);$o.setAccessToken(ds);const ps=document.getElementById("app");t(u).createRoot(ps).render((0,i.jsx)((function(e){let{basename:t,children:n,window:r}=e,a=p.useRef();null==a.current&&(a.current=m({window:r,v5Compat:!0}));let o=a.current,[i,l]=p.useState({action:o.action,location:o.location});return p.useLayoutEffect((()=>o.listen(l)),[o]),p.createElement(ke,{basename:t,children:n,location:i.location,navigationType:i.action,navigator:o})}),{basename:"/makao-gift-frontend",children:(0,i.jsx)((function(){const e=Qo(),[t]=$n("accessToken","");return(0,p.useEffect)((()=>{$o.setAccessToken(t)}),[t]),(0,p.useEffect)((()=>{t&&e.fetchUser()}),[]),(0,i.jsxs)(Rn,{theme:ts,children:[(0,i.jsx)(us,{}),(0,i.jsx)(ti,{}),(0,i.jsx)(cs,{children:(0,i.jsxs)(Se,{children:[(0,i.jsx)(xe,{path:"/",element:(0,i.jsx)(li,{})}),(0,i.jsx)(xe,{path:"/signup",element:(0,i.jsx)(es,{})}),(0,i.jsx)(xe,{path:"/login",element:(0,i.jsx)(yi,{})}),(0,i.jsx)(xe,{path:"/products",element:(0,i.jsx)(Wl,{})}),(0,i.jsx)(xe,{path:"/products/:id",element:(0,i.jsx)(Tl,{})}),(0,i.jsx)(xe,{path:"/order",element:(0,i.jsx)(Ji,{})}),(0,i.jsx)(xe,{path:"/orders",element:(0,i.jsx)(hl,{})}),(0,i.jsx)(xe,{path:"/orders/:id",element:(0,i.jsx)(Ti,{})})]})})]})}),{})}));
-//# sourceMappingURL=index.d4be8654.js.map
+//# sourceMappingURL=index.e8c80cfc.js.map
