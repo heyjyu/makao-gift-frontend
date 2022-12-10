@@ -2913,6 +2913,7 @@ const accessToken = JSON.parse(data);
 const container = document.getElementById("app");
 const root = (0, _clientDefault.default).createRoot(container);
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
+    basename: "/makao-gift-frontend",
     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
         fileName: "src/index.jsx",
         lineNumber: 17,
@@ -31615,104 +31616,97 @@ function App() {
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _styledComponents.ThemeProvider), {
         theme: (0, _defaultThemeDefault.default),
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
-            basename: "/makao-gift-frontend",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _globalStyleDefault.default), {}, void 0, false, {
-                    fileName: "src/App.jsx",
-                    lineNumber: 52,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {}, void 0, false, {
-                    fileName: "src/App.jsx",
-                    lineNumber: 53,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Main, {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _homePageDefault.default), {}, void 0, false, void 0, void 0)
-                            }, void 0, false, {
-                                fileName: "src/App.jsx",
-                                lineNumber: 56,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/signup",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signUpPageDefault.default), {}, void 0, false, void 0, void 0)
-                            }, void 0, false, {
-                                fileName: "src/App.jsx",
-                                lineNumber: 57,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/login",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginPageDefault.default), {}, void 0, false, void 0, void 0)
-                            }, void 0, false, {
-                                fileName: "src/App.jsx",
-                                lineNumber: 58,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/products",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productsPageDefault.default), {}, void 0, false, void 0, void 0)
-                            }, void 0, false, {
-                                fileName: "src/App.jsx",
-                                lineNumber: 59,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/products/:id",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDetailPageDefault.default), {}, void 0, false, void 0, void 0)
-                            }, void 0, false, {
-                                fileName: "src/App.jsx",
-                                lineNumber: 60,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/order",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _orderPageDefault.default), {}, void 0, false, void 0, void 0)
-                            }, void 0, false, {
-                                fileName: "src/App.jsx",
-                                lineNumber: 61,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/orders",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _ordersPageDefault.default), {}, void 0, false, void 0, void 0)
-                            }, void 0, false, {
-                                fileName: "src/App.jsx",
-                                lineNumber: 62,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/orders/:id",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _orderDetailPageDefault.default), {}, void 0, false, void 0, void 0)
-                            }, void 0, false, {
-                                fileName: "src/App.jsx",
-                                lineNumber: 63,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/App.jsx",
-                        lineNumber: 55,
-                        columnNumber: 11
-                    }, this)
-                }, void 0, false, {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _globalStyleDefault.default), {}, void 0, false, {
+                fileName: "src/App.jsx",
+                lineNumber: 51,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {}, void 0, false, {
+                fileName: "src/App.jsx",
+                lineNumber: 52,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Main, {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                            path: "/",
+                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _homePageDefault.default), {}, void 0, false, void 0, void 0)
+                        }, void 0, false, {
+                            fileName: "src/App.jsx",
+                            lineNumber: 55,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                            path: "/signup",
+                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signUpPageDefault.default), {}, void 0, false, void 0, void 0)
+                        }, void 0, false, {
+                            fileName: "src/App.jsx",
+                            lineNumber: 56,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                            path: "/login",
+                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginPageDefault.default), {}, void 0, false, void 0, void 0)
+                        }, void 0, false, {
+                            fileName: "src/App.jsx",
+                            lineNumber: 57,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                            path: "/products",
+                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productsPageDefault.default), {}, void 0, false, void 0, void 0)
+                        }, void 0, false, {
+                            fileName: "src/App.jsx",
+                            lineNumber: 58,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                            path: "/products/:id",
+                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDetailPageDefault.default), {}, void 0, false, void 0, void 0)
+                        }, void 0, false, {
+                            fileName: "src/App.jsx",
+                            lineNumber: 59,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                            path: "/order",
+                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _orderPageDefault.default), {}, void 0, false, void 0, void 0)
+                        }, void 0, false, {
+                            fileName: "src/App.jsx",
+                            lineNumber: 60,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                            path: "/orders",
+                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _ordersPageDefault.default), {}, void 0, false, void 0, void 0)
+                        }, void 0, false, {
+                            fileName: "src/App.jsx",
+                            lineNumber: 61,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                            path: "/orders/:id",
+                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _orderDetailPageDefault.default), {}, void 0, false, void 0, void 0)
+                        }, void 0, false, {
+                            fileName: "src/App.jsx",
+                            lineNumber: 62,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
                     fileName: "src/App.jsx",
                     lineNumber: 54,
                     columnNumber: 9
                 }, this)
-            ]
-        }, void 0, true, {
-            fileName: "src/App.jsx",
-            lineNumber: 51,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
+            }, void 0, false, {
+                fileName: "src/App.jsx",
+                lineNumber: 53,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "src/App.jsx",
         lineNumber: 50,
         columnNumber: 5
