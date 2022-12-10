@@ -34674,7 +34674,7 @@ var _s = $RefreshSig$();
 const Container = (0, _styledComponentsDefault.default).header`
   font-weight: 700;
   width: 100%;
-  min-width: 1024px;
+  min-width: 1200px;
   height: 4em;
   border-bottom: 1px solid #D9D9D9;
 `;
@@ -42107,7 +42107,7 @@ const Container = (0, _styledComponentsDefault.default).div`
   top: 4em;
   left: 0;
   width: 100vw;
-  min-width: 1024px;
+  min-width: 1200px;
   height: 18em;
   background: url(/makao-gift-frontend/assets/images/banner.png) center / cover , linear-gradient(90deg, #FCBE2C, #F7FF73);
 `;
