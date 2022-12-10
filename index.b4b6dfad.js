@@ -34674,7 +34674,6 @@ var _s = $RefreshSig$();
 const Container = (0, _styledComponentsDefault.default).header`
   font-weight: 700;
   width: 100%;
-  min-width: 1200px;
   height: 4em;
   border-bottom: 1px solid #D9D9D9;
 `;
@@ -34750,12 +34749,12 @@ function Header() {
                                     children: "선물하기"
                                 }, void 0, false, {
                                     fileName: "src/components/Header.jsx",
-                                    lineNumber: 84,
+                                    lineNumber: 83,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/Header.jsx",
-                                lineNumber: 83,
+                                lineNumber: 82,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -34765,12 +34764,12 @@ function Header() {
                                     children: "홈"
                                 }, void 0, false, {
                                     fileName: "src/components/Header.jsx",
-                                    lineNumber: 89,
+                                    lineNumber: 88,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/Header.jsx",
-                                lineNumber: 88,
+                                lineNumber: 87,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -34780,12 +34779,12 @@ function Header() {
                                     children: "스토어"
                                 }, void 0, false, {
                                     fileName: "src/components/Header.jsx",
-                                    lineNumber: 94,
+                                    lineNumber: 93,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/Header.jsx",
-                                lineNumber: 93,
+                                lineNumber: 92,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -34795,18 +34794,18 @@ function Header() {
                                     children: "주문조회"
                                 }, void 0, false, {
                                     fileName: "src/components/Header.jsx",
-                                    lineNumber: 99,
+                                    lineNumber: 98,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/Header.jsx",
-                                lineNumber: 98,
+                                lineNumber: 97,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Header.jsx",
-                        lineNumber: 82,
+                        lineNumber: 81,
                         columnNumber: 11
                     }, this),
                     accessToken ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34821,12 +34820,12 @@ function Header() {
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/Header.jsx",
-                                    lineNumber: 108,
+                                    lineNumber: 107,
                                     columnNumber: 19
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/Header.jsx",
-                                lineNumber: 107,
+                                lineNumber: 106,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -34835,13 +34834,13 @@ function Header() {
                                 children: "로그아웃"
                             }, void 0, false, {
                                 fileName: "src/components/Header.jsx",
-                                lineNumber: 115,
+                                lineNumber: 114,
                                 columnNumber: 17
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Header.jsx",
-                        lineNumber: 106,
+                        lineNumber: 105,
                         columnNumber: 15
                     }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(List, {
                         children: [
@@ -34851,12 +34850,12 @@ function Header() {
                                     children: "회원가입"
                                 }, void 0, false, {
                                     fileName: "src/components/Header.jsx",
-                                    lineNumber: 122,
+                                    lineNumber: 121,
                                     columnNumber: 19
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/Header.jsx",
-                                lineNumber: 121,
+                                lineNumber: 120,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -34865,34 +34864,34 @@ function Header() {
                                     children: "로그인"
                                 }, void 0, false, {
                                     fileName: "src/components/Header.jsx",
-                                    lineNumber: 127,
+                                    lineNumber: 126,
                                     columnNumber: 19
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/Header.jsx",
-                                lineNumber: 126,
+                                lineNumber: 125,
                                 columnNumber: 17
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Header.jsx",
-                        lineNumber: 120,
+                        lineNumber: 119,
                         columnNumber: 15
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Header.jsx",
-                lineNumber: 81,
+                lineNumber: 80,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "src/components/Header.jsx",
-            lineNumber: 80,
+            lineNumber: 79,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/components/Header.jsx",
-        lineNumber: 79,
+        lineNumber: 78,
         columnNumber: 5
     }, this);
 }
@@ -42107,7 +42106,6 @@ const Container = (0, _styledComponentsDefault.default).div`
   top: 4em;
   left: 0;
   width: 100vw;
-  min-width: 1200px;
   height: 18em;
   background: url(/makao-gift-frontend/assets/images/banner.png) center / cover , linear-gradient(90deg, #FCBE2C, #F7FF73);
 `;
@@ -42144,7 +42142,7 @@ function Banner() {
                     children: "평범한 선물은 주기도 민망하다구요?"
                 }, void 0, false, {
                     fileName: "src/components/Banner.jsx",
-                    lineNumber: 43,
+                    lineNumber: 42,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Title, {
@@ -42154,31 +42152,31 @@ function Banner() {
                             children: "마카오톡 선물하기 아이템"
                         }, void 0, false, {
                             fileName: "src/components/Banner.jsx",
-                            lineNumber: 46,
+                            lineNumber: 45,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/Banner.jsx",
-                    lineNumber: 44,
+                    lineNumber: 43,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                     children: "마카오톡 선물하기에서만 볼 수 있는 특별템 기획전"
                 }, void 0, false, {
                     fileName: "src/components/Banner.jsx",
-                    lineNumber: 50,
+                    lineNumber: 49,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/Banner.jsx",
-            lineNumber: 42,
+            lineNumber: 41,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/components/Banner.jsx",
-        lineNumber: 41,
+        lineNumber: 40,
         columnNumber: 5
     }, this);
 }
