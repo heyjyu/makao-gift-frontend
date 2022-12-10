@@ -721,9 +721,9 @@ p=o("acw62");function q(){return q=Object.assign?Object.assign.bind():function(e
   align-items: center;
   width: 100%;
   max-width: 1400px;
-  min-width: 1024px;
+  min-width: 1200px;
   height: calc(100vh - 4em);
   min-height: 50em;
   margin: 0 auto;
 `;const fs=localStorage.getItem("accessToken"),ds=JSON.parse(fs);$o.setAccessToken(ds);const ps=document.getElementById("app");t(u).createRoot(ps).render((0,i.jsx)((function(e){let{basename:t,children:n,window:r}=e,a=p.useRef();null==a.current&&(a.current=m({window:r,v5Compat:!0}));let o=a.current,[i,l]=p.useState({action:o.action,location:o.location});return p.useLayoutEffect((()=>o.listen(l)),[o]),p.createElement(ke,{basename:t,children:n,location:i.location,navigationType:i.action,navigator:o})}),{basename:"/makao-gift-frontend",children:(0,i.jsx)((function(){const e=Qo(),[t]=$n("accessToken","");return(0,p.useEffect)((()=>{$o.setAccessToken(t)}),[t]),(0,p.useEffect)((()=>{t&&e.fetchUser()}),[]),(0,i.jsxs)(Rn,{theme:ts,children:[(0,i.jsx)(us,{}),(0,i.jsx)(ti,{}),(0,i.jsx)(cs,{children:(0,i.jsxs)(Se,{children:[(0,i.jsx)(xe,{path:"/",element:(0,i.jsx)(li,{})}),(0,i.jsx)(xe,{path:"/signup",element:(0,i.jsx)(es,{})}),(0,i.jsx)(xe,{path:"/login",element:(0,i.jsx)(yi,{})}),(0,i.jsx)(xe,{path:"/products",element:(0,i.jsx)(Wl,{})}),(0,i.jsx)(xe,{path:"/products/:id",element:(0,i.jsx)(Tl,{})}),(0,i.jsx)(xe,{path:"/order",element:(0,i.jsx)(Ji,{})}),(0,i.jsx)(xe,{path:"/orders",element:(0,i.jsx)(hl,{})}),(0,i.jsx)(xe,{path:"/orders/:id",element:(0,i.jsx)(Ti,{})})]})})]})}),{})}));
-//# sourceMappingURL=index.90a15078.js.map
+//# sourceMappingURL=index.523ba55c.js.map
