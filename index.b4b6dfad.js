@@ -35043,10 +35043,7 @@ class ApiService {
     constructor(){
         this.accessToken = "";
         this.instance = (0, _axiosDefault.default).create({
-            baseURL: baseUrl,
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            }
+            baseURL: baseUrl
         });
     }
     setAccessToken(accessToken) {
@@ -35054,8 +35051,7 @@ class ApiService {
         if (accessToken) this.instance = (0, _axiosDefault.default).create({
             baseURL: baseUrl,
             headers: {
-                Authorization: `Bearer ${this.accessToken}`,
-                "Content-Type": "application/x-www-form-urlencoded"
+                Authorization: `Bearer ${this.accessToken}`
             }
         });
     }
