@@ -27,14 +27,14 @@ const PreviousButton = styled.button`
   width: 1em;
   height: 1em;
   border: none;
-  background: url(/assets/images/left-arrow.png) no-repeat 100% 100%;
+  background: url(/makao-gift-frontend/assets/images/left-arrow.png) no-repeat 100% 100%;
   background-size: contain;
   text-indent: -10em;
   overflow: hidden;
   cursor: pointer;
 
   :disabled {
-    background: url(/assets/images/left-arrow-disabled.png) no-repeat 100% 100%;
+    background: url(/makao-gift-frontend/assets/images/left-arrow-disabled.png) no-repeat 100% 100%;
     background-size: contain;
     cursor: default;
   }
@@ -44,14 +44,14 @@ const NextButton = styled.button`
   width: 1em;
   height: 1em;
   border: none;
-  background: url(/assets/images/right-arrow.png) no-repeat 100% 100%;
+  background: url(/makao-gift-frontend/assets/images/right-arrow.png) no-repeat 100% 100%;
   background-size: contain;
   text-indent: -10em;
   overflow: hidden;
   cursor: pointer;
 
   :disabled {
-    background: url(/assets/images/right-arrow-disabled.png) no-repeat 100% 100%;
+    background: url(/makao-gift-frontend/assets/images/right-arrow-disabled.png) no-repeat 100% 100%;
     background-size: contain;
     cursor: default;
   }

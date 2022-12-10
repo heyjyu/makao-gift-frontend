@@ -8,7 +8,7 @@ const Container = styled.div`
   left: 0;
   width: 100vw;
   height: 18em;
-  background: url(/assets/images/banner.png) center / cover , linear-gradient(90deg, #FCBE2C, #F7FF73);
+  background: url(/makao-gift-frontend/assets/images/banner.png) center / cover , linear-gradient(90deg, #FCBE2C, #F7FF73);
 `;
 
 const Wrapper = styled.div`

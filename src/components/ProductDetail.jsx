@@ -98,14 +98,14 @@ const ReduceButton = styled.button`
   height: 2em;
   margin-left: 0.5em;
   border: none;
-  background: url(/assets/images/minus-black.png) no-repeat 100% 100%;
+  background: url(/makao-gift-frontend/assets/images/minus-black.png) no-repeat 100% 100%;
   background-size: contain;
   text-indent: -10em;
   overflow: hidden;
   cursor: pointer;
 
   :disabled {
-    background: url(/assets/images/minus-gray.png) no-repeat 100% 100%;
+    background: url(/makao-gift-frontend/assets/images/minus-gray.png) no-repeat 100% 100%;
     background-size: contain;
     cursor: default;
   }
@@ -116,7 +116,7 @@ const AddButton = styled.button`
   height: 2em;
   margin-right: 0.5em;
   border: none;
-  background: url(/assets/images/plus-black.png) no-repeat 100% 100%;
+  background: url(/makao-gift-frontend/assets/images/plus-black.png) no-repeat 100% 100%;
   background-size: contain;
   text-indent: -10em;
   overflow: hidden;
