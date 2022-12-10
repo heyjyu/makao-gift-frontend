@@ -31596,7 +31596,7 @@ const Main = (0, _styledComponentsDefault.default).main`
   align-items: center;
   width: 100%;
   max-width: 1400px;
-  min-width: 1200px;
+  min-width: 1024px;
   height: calc(100vh - 4em);
   min-height: 50em;
   margin: 0 auto;
@@ -35043,7 +35043,10 @@ class ApiService {
     constructor(){
         this.accessToken = "";
         this.instance = (0, _axiosDefault.default).create({
-            baseURL: baseUrl
+            baseURL: baseUrl,
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
         });
     }
     setAccessToken(accessToken) {
@@ -35051,7 +35054,8 @@ class ApiService {
         if (accessToken) this.instance = (0, _axiosDefault.default).create({
             baseURL: baseUrl,
             headers: {
-                Authorization: `Bearer ${this.accessToken}`
+                Authorization: `Bearer ${this.accessToken}`,
+                "Content-Type": "application/x-www-form-urlencoded"
             }
         });
     }
